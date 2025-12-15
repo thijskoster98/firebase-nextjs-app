@@ -39,7 +39,7 @@ export default function ItemCard({ item, category, image }: ItemCardProps) {
             </Link>
           </div>
         )}
-        <div className="flex flex-col p-6">
+        <div className="flex flex-col p-6 flex-grow">
           <CardHeader className="p-0 mb-4">
             <CardTitle className="text-xl font-bold">
               <Link href={itemUrl}>{item.title}</Link>
@@ -48,10 +48,10 @@ export default function ItemCard({ item, category, image }: ItemCardProps) {
               <CardDescription className="text-md">{item.subtitle}</CardDescription>
             )}
           </CardHeader>
-          <CardContent className="p-0 mb-4">
+          <CardContent className="p-0 flex-grow">
             <p className="text-muted-foreground line-clamp-3">{item.intro}</p>
           </CardContent>
-          <div className="p-0 flex justify-between items-center gap-4 mt-auto text-sm text-muted-foreground">
+          <div className="p-0 flex justify-between items-center gap-4 mt-4 text-sm text-muted-foreground">
             <div className="flex items-center">
               <Calendar className="mr-2 h-4 w-4" />
               {new Date(item.date).toLocaleDateString('en-US', {
