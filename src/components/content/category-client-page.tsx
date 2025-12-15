@@ -12,6 +12,7 @@ import { Search, X, ArrowRight } from 'lucide-react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Separator } from '../ui/separator';
 import Signature from '../ui/signature';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 interface CategoryClientPageProps {
   items: PortfolioItem[];
@@ -32,6 +33,7 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>(initialTags ? initialTags.split(',') : []);
   const [languageFilter, setLanguageFilter] = useState<LanguageFilter>('all');
+  const [sortOrder, setSortOrder] = useState('date-desc');
 
   const bannerImage = PlaceHolderImages.find((img) => img.id === 'category-banner');
   const authorImage = PlaceHolderImages.find((img) => img.id === 'author-portrait');
@@ -41,8 +43,8 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
     setSelectedTags(newTags ? newTags.split(',') : []);
   }, [searchParams]);
 
-  const filteredItems = useMemo(() => {
-    return items
+  const filteredAndSortedItems = useMemo(() => {
+    let filtered = items
       .filter((item) => {
         // Language filtering
         const originalItem = items.find(i => i.id === item.id);
@@ -81,7 +83,29 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
           .toLowerCase();
         return contentToSearch.includes(query);
       });
-  }, [items, searchQuery, selectedTags, languageFilter]);
+      
+    // Sorting logic
+    return filtered.sort((a, b) => {
+        switch (sortOrder) {
+            case 'date-asc':
+                return new Date(a.date).getTime() - new Date(b.date).getTime();
+            case 'rating-desc':
+                if (a.rating !== undefined && b.rating !== undefined) {
+                    return b.rating - a.rating;
+                }
+                return 0;
+            case 'rating-asc':
+                if (a.rating !== undefined && b.rating !== undefined) {
+                    return a.rating - b.rating;
+                }
+                return 0;
+            case 'date-desc':
+            default:
+                return new Date(b.date).getTime() - new Date(a.date).getTime();
+        }
+    });
+
+  }, [items, searchQuery, selectedTags, languageFilter, sortOrder]);
 
   const toggleTag = (tag: string) => {
     const newTags = selectedTags.includes(tag)
@@ -178,6 +202,22 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
               className="pl-10 w-full"
             />
           </div>
+          <Select value={sortOrder} onValueChange={setSortOrder}>
+            <SelectTrigger className="w-full md:w-[240px]">
+              <SelectValue placeholder={dict.category_page.sort_by} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="date-desc">{dict.category_page.sort_latest}</SelectItem>
+              <SelectItem value="date-asc">{dict.category_page.sort_oldest}</SelectItem>
+              {category === 'reviews' && (
+                <>
+                  <Separator className="my-1" />
+                  <SelectItem value="rating-desc">{dict.category_page.sort_rating_desc}</SelectItem>
+                  <SelectItem value="rating-asc">{dict.category_page.sort_rating_asc}</SelectItem>
+                </>
+              )}
+            </SelectContent>
+          </Select>
         </div>
         
         <div className="grid md:grid-cols-4 gap-8">
@@ -232,8 +272,8 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
 
           <main className="md:col-span-3">
             <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
-              {filteredItems.length > 0 ? (
-                filteredItems.map((item) => {
+              {filteredAndSortedItems.length > 0 ? (
+                filteredAndSortedItems.map((item) => {
                   const image = PlaceHolderImages.find(img => img.id === item.thumbnail);
                   return <ItemCard key={item.id} item={item} category={category} image={image} showTags={true} lang={lang} dict={dict} />;
                 })

@@ -32,7 +32,12 @@
         "filter_by_tag": "Filter op tag:",
         "clear_filters": "Filters wissen",
         "no_results_title": "Geen resultaten gevonden",
-        "no_results_description": "Probeer je zoekopdracht of filters aan te passen."
+        "no_results_description": "Probeer je zoekopdracht of filters aan te passen.",
+        "sort_by": "Sorteer op...",
+        "sort_latest": "Nieuwste naar Oudste",
+        "sort_oldest": "Oudste naar Nieuwste",
+        "sort_rating_desc": "Hoogste Beoordeling",
+        "sort_rating_asc": "Laagste Beoordeling"
     },
     "post_page": {
         "author": "Auteur",

@@ -32,7 +32,12 @@
         "filter_by_tag": "Filter by tag:",
         "clear_filters": "Clear filters",
         "no_results_title": "No results found",
-        "no_results_description": "Try adjusting your search or filters."
+        "no_results_description": "Try adjusting your search or filters.",
+        "sort_by": "Sort by...",
+        "sort_latest": "Latest to Earliest",
+        "sort_oldest": "Earliest to Latest",
+        "sort_rating_desc": "Highest Rating",
+        "sort_rating_asc": "Lowest Rating"
     },
     "post_page": {
         "author": "Author",
