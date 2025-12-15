@@ -119,6 +119,12 @@
       "description": "A series of switches with one highlighted",
       "imageUrl": "https://images.unsplash.com/photo-1604380880002-8aa86df679b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzd2l0Y2hlcyUyMGhpZ2hsaWdodHxlbnwwfHx8fDE3NjU3OTA3MjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "switches highlight"
+    },
+    {
+      "id": "author-portrait",
+      "description": "A friendly portrait of a person in a creative setting.",
+      "imageUrl": "https://images.unsplash.com/photo-1557862921-37829c790f19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwb3J0cmFpdCUyMG1hbnxlbnwwfHx8fDE3NjU4NjI4MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "portrait person"
     }
   ]
 }

@@ -7,7 +7,7 @@ import { CATEGORIES } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
 import StarRating from '@/components/ui/star-rating';
-import { Calendar } from 'lucide-react';
+import { Calendar, User } from 'lucide-react';
 
 export async function generateStaticParams() {
   const params: { category: Category; slug: string }[] = [];
@@ -75,6 +75,12 @@ export default async function PostPage({ params }: { params: { category: Categor
                     month: 'long',
                     day: 'numeric',
                 })}
+            </div>
+            <div className="flex items-center">
+                <User className="mr-2 h-4 w-4" />
+                <Link href="/about" className="hover:text-primary">
+                    Author
+                </Link>
             </div>
             {item.rating !== undefined && params.category === 'reviews' && (
                 <StarRating rating={item.rating} />

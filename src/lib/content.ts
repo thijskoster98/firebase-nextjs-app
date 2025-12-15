@@ -23,13 +23,13 @@ export async function getContentBySlug(category: Category, slug: string): Promis
   return items.find(item => item.id === slug) || null;
 }
 
-export async function getLatestContent(): Promise<Partial<Record<Category, PortfolioItem>>> {
-  const latestContent: Partial<Record<Category, PortfolioItem>> = {};
+export async function getLatestContent(): Promise<Partial<Record<Category, PortfolioItem[]>>> {
+  const latestContent: Partial<Record<Category, PortfolioItem[]>> = {};
 
   for (const category of CATEGORIES) {
     const items = await getContent(category);
     if (items.length > 0) {
-      latestContent[category] = items[0]; // Already sorted by date
+      latestContent[category] = items.slice(0, 2); // Get the latest two items
     }
   }
 

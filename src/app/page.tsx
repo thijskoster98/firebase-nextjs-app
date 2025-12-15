@@ -2,6 +2,9 @@ import { getLatestContent } from '@/lib/content';
 import type { Category } from '@/lib/types';
 import ItemCard from '@/components/content/item-card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { ArrowRight, User } from 'lucide-react';
 
 const categoryDisplayNames: Record<Category, string> = {
   projects: 'Projects',
@@ -13,7 +16,7 @@ const categoryDisplayNames: Record<Category, string> = {
 export default async function Home() {
   const latestContent = await getLatestContent();
   const categories = Object.keys(latestContent).filter(
-    (key) => latestContent[key as Category]
+    (key) => latestContent[key as Category] && latestContent[key as Category]!.length > 0
   ) as Category[];
 
   return (
@@ -25,20 +28,39 @@ export default async function Home() {
         <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
           A minimal, fast personal portfolio & publishing website using Firebase Hosting where content comes ONLY from JSON files in the repository.
         </p>
+        <div className="mt-8 flex justify-center">
+            <Button asChild>
+                <Link href="/about">
+                    <User className="mr-2" />
+                    About Me
+                    <ArrowRight className="ml-2" />
+                </Link>
+            </Button>
+        </div>
       </section>
 
       <div className="space-y-16">
         {categories.map((category) => {
-          const item = latestContent[category];
-          if (!item) return null;
-          const image = PlaceHolderImages.find(img => img.id === item.thumbnail);
+          const items = latestContent[category];
+          if (!items || items.length === 0) return null;
+          
           return (
             <section key={category}>
-              <h2 className="text-3xl font-bold mb-6 border-b pb-2">
-                Latest {categoryDisplayNames[category]}
-              </h2>
-              <div className="max-w-4xl mx-auto">
-                 <ItemCard item={item} category={category} image={image}/>
+              <div className="flex justify-between items-center mb-6 border-b pb-2">
+                <h2 className="text-3xl font-bold">
+                  Latest {categoryDisplayNames[category]}
+                </h2>
+                <Button asChild variant="ghost">
+                    <Link href={`/${category}`}>
+                        View All <ArrowRight className="ml-2" />
+                    </Link>
+                </Button>
+              </div>
+              <div className="grid md:grid-cols-2 gap-8">
+                 {items.map(item => {
+                    const image = PlaceHolderImages.find(img => img.id === item.thumbnail);
+                    return <ItemCard key={item.id} item={item} category={category} image={image} />;
+                 })}
               </div>
             </section>
           );

@@ -12,6 +12,7 @@ import { CATEGORIES, CATEGORY_DISPLAY_NAMES } from '@/lib/types';
 const navItems = [
   { href: '/', label: 'Home' },
   ...CATEGORIES.map(cat => ({ href: `/${cat}`, label: CATEGORY_DISPLAY_NAMES[cat] })),
+  { href: '/about', label: 'About' },
   { href: '/cv-contact', label: 'CV & Contact' },
 ];
 
@@ -36,7 +37,9 @@ export default function Header() {
                 href={item.href}
                 className={cn(
                   'transition-colors hover:text-foreground/80',
-                  pathname === item.href ? 'text-foreground' : 'text-foreground/60'
+                  (pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href)))
+                    ? 'text-foreground font-semibold'
+                    : 'text-foreground/60'
                 )}
               >
                 {item.label}
@@ -71,7 +74,9 @@ export default function Header() {
                             onClick={() => setIsMobileMenuOpen(false)}
                             className={cn(
                                 "text-lg",
-                                pathname === item.href ? 'text-foreground' : 'text-foreground/60'
+                                (pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href)))
+                                 ? 'text-foreground font-semibold'
+                                 : 'text-foreground/60'
                             )}
                         >
                             {item.label}
