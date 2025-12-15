@@ -3,14 +3,19 @@ import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Twitter } from 'lucide-react';
+import { getDictionary } from '@/lib/dictionaries';
 
-export const metadata = {
-  title: 'About Me | JSON Portfolio',
-  description: 'A little bit about the author of this site.',
-};
+export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
+    const dict = await getDictionary(lang);
+    return {
+      title: `${dict.about_page.title} | JSON Portfolio`,
+      description: 'A little bit about the author of this site.',
+    }
+}
 
-export default function AboutPage() {
+export default async function AboutPage({ params: { lang } }: { params: { lang: string } }) {
   const image = PlaceHolderImages.find((img) => img.id === 'author-portrait');
+  const dict = await getDictionary(lang);
 
   return (
     <div className="container max-w-4xl mx-auto px-4 py-8 md:py-12">
@@ -29,7 +34,7 @@ export default function AboutPage() {
             </div>
           )}
           <h2 className="text-2xl font-bold">John Doe</h2>
-          <p className="text-muted-foreground mb-4">Full Stack Developer</p>
+          <p className="text-muted-foreground mb-4">{dict.about_page.role}</p>
           <div className="flex space-x-2">
             <Button variant="outline" size="icon" asChild>
                 <Link href="#" aria-label="Github Profile">
@@ -50,21 +55,19 @@ export default function AboutPage() {
         </div>
         <div className="md:col-span-2">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
-            About Me
+            {dict.about_page.title}
           </h1>
           <div className="prose prose-lg dark:prose-invert max-w-none">
             <p>
-              Hello! I'm a passionate developer with a love for clean code, elegant design, and building things for the web. My journey into technology started with a fascination for how software can solve real-world problems.
+              {dict.about_page.intro_p1}
             </p>
             <p>
-              This website is a personal project where I explore different technologies and share my thoughts on design, development, and everything in between. It's built on a foundation of simplicity, using Next.js and Tailwind CSS, with all content managed through simple JSON files in a Git repository. This 'content-as-data' approach reflects my belief in transparent, developer-friendly systems.
+              {dict.about_page.intro_p2}
             </p>
             <p>
-              When I'm not coding, you can find me exploring new coffee shops, reading science fiction novels, or tinkering with my latest side project. I'm always eager to learn and connect with others who share my interests.
+              {dict.about_page.intro_p3}
             </p>
-            <p>
-              Feel free to <Link href="/cv-contact">get in touch</Link> or connect with me on social media.
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: dict.about_page.get_in_touch.replace('{locale}', lang) }} />
           </div>
         </div>
       </div>

@@ -4,21 +4,24 @@ import { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { PortfolioItem, Category } from '@/lib/types';
-import { CATEGORY_DISPLAY_NAMES } from '@/lib/types';
 import ItemCard from '@/components/content/item-card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Search, X, ArrowRight } from 'lucide-react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 
 interface CategoryClientPageProps {
   items: PortfolioItem[];
   category: Category;
   allTags: string[];
+  lang: string;
+  dict: any;
+  categoryName: string;
 }
 
-export default function CategoryClientPage({ items, category, allTags }: CategoryClientPageProps) {
+export default function CategoryClientPage({ items, category, allTags, lang, dict, categoryName }: CategoryClientPageProps) {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const initialTags = searchParams.get('tags');
   
@@ -27,7 +30,6 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
 
   const bannerImage = PlaceHolderImages.find((img) => img.id === 'category-banner');
   const authorImage = PlaceHolderImages.find((img) => img.id === 'author-portrait');
-
 
   useEffect(() => {
     const newTags = searchParams.get('tags');
@@ -39,6 +41,7 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
       .filter((item) => {
         // Tag filtering
         if (selectedTags.length > 0) {
+          if (!item.tags) return false;
           return selectedTags.every((tag) => item.tags.includes(tag));
         }
         return true;
@@ -51,7 +54,7 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
         const query = searchQuery.toLowerCase();
         const contentToSearch = [
           item.title,
-          item.tags.join(' '),
+          ...(item.tags || []),
           item.date,
           item.content,
           item.intro,
@@ -75,22 +78,22 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
         newParams.delete('tags');
     }
     
-    // Using window.history.pushState to avoid a full page reload, for a smoother UX
-    window.history.pushState({}, '', `${window.location.pathname}?${newParams.toString()}`);
+    // Using router.push to update URL without full reload
+    router.push(`/${lang}/${category}?${newParams.toString()}`);
     setSelectedTags(newTags);
   };
 
   const clearFilters = () => {
     const newParams = new URLSearchParams(window.location.search);
     newParams.delete('tags');
-    window.history.pushState({}, '', `${window.location.pathname}?${newParams.toString()}`);
+    router.push(`/${lang}/${category}?${newParams.toString()}`);
     setSelectedTags([]);
   }
 
   return (
     <>
-      {bannerImage && (
-        <section className="relative w-full h-32 md:h-40 shadow-inner">
+      <section className="relative w-full h-32 md:h-40 shadow-inner">
+        {bannerImage && (
           <Image
             src={bannerImage.imageUrl}
             alt={bannerImage.description}
@@ -99,22 +102,22 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
             priority
             data-ai-hint={bannerImage.imageHint}
           />
-           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
-        </section>
-      )}
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+      </section>
 
       <section className="bg-muted">
-        <div className="container px-4 py-8 md:py-12 grid md:grid-cols-3 gap-8 md:gap-12 items-center">
+        <div className="container px-4 py-8 grid md:grid-cols-3 gap-8 md:gap-12 items-center">
           <div className="md:col-span-2">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
-              {CATEGORY_DISPLAY_NAMES[category]}
+              {categoryName}
             </h1>
             <div className="prose prose-lg dark:prose-invert max-w-none">
               <p>
-                Welcome to the {category} section. Here you can browse all entries, search by keyword, or filter by specific tags to find exactly what you're looking for. This collection is part of a larger personal project exploring different technologies and sharing thoughts on design, development, and everything in between.
+                {dict.category_page.intro.replace('{category}', categoryName.toLowerCase())}
               </p>
             </div>
-             <p className="font-headline text-2xl mt-6 text-right mr-4">- John Doe</p>
+             <p className="font-headline text-2xl mt-6 text-right mr-4">{dict.homepage.signature}</p>
           </div>
           <div className="md:col-span-1 flex flex-col items-center -mt-48">
             {authorImage && (
@@ -130,14 +133,14 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
             )}
              <div className="flex flex-col space-y-2 w-full max-w-[16rem] mx-auto">
                 <Button asChild variant="outline">
-                    <Link href="/about">
-                        More About Me
+                    <Link href={`/${lang}/about`}>
+                        {dict.homepage.more_about_me}
                         <ArrowRight className="ml-2" />
                     </Link>
                 </Button>
                 <Button asChild variant="secondary">
-                    <Link href="/cv-contact">
-                        CV & Contact
+                    <Link href={`/${lang}/cv-contact`}>
+                        {dict.homepage.cv_contact}
                     </Link>
                 </Button>
             </div>
@@ -151,7 +154,7 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <Input
               type="search"
-              placeholder={`Search in ${category}...`}
+              placeholder={dict.category_page.search_placeholder.replace('{category}', categoryName.toLowerCase())}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-10 w-full"
@@ -160,7 +163,7 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
         </div>
 
         <div className="mb-8">
-            <h3 className="text-sm font-semibold mb-2 text-muted-foreground">Filter by tag:</h3>
+            <h3 className="text-sm font-semibold mb-2 text-muted-foreground">{dict.category_page.filter_by_tag}</h3>
             <div className="flex flex-wrap gap-2">
               {allTags.map((tag) => (
                 <Button
@@ -176,7 +179,7 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
               ))}
               {selectedTags.length > 0 && (
                   <Button variant="ghost" size="sm" onClick={clearFilters}>
-                      Clear filters
+                      {dict.category_page.clear_filters}
                   </Button>
               )}
             </div>
@@ -186,13 +189,13 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
           {filteredItems.length > 0 ? (
             filteredItems.map((item) => {
               const image = PlaceHolderImages.find(img => img.id === item.thumbnail);
-              return <ItemCard key={item.id} item={item} category={category} image={image} showTags={true} />;
+              return <ItemCard key={item.id} item={item} category={category} image={image} showTags={true} lang={lang} dict={dict} />;
             })
           ) : (
             <div className="text-center py-16 border-2 border-dashed rounded-lg md:col-span-2">
-              <h3 className="text-xl font-semibold">No results found</h3>
+              <h3 className="text-xl font-semibold">{dict.category_page.no_results_title}</h3>
               <p className="text-muted-foreground mt-2">
-                Try adjusting your search or filters.
+                {dict.category_page.no_results_description}
               </p>
             </div>
           )}

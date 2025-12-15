@@ -7,21 +7,25 @@ import { CATEGORIES } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
 import StarRating from '@/components/ui/star-rating';
-import { Calendar, User } from 'lucide-react';
+import { Calendar, User, Languages } from 'lucide-react';
+import { getDictionary } from '@/lib/dictionaries';
 
 export async function generateStaticParams() {
-  const params: { category: Category; slug: string }[] = [];
-  for (const category of CATEGORIES) {
-    const items = await getContent(category);
-    for (const item of items) {
-      params.push({ category, slug: item.id });
+  const params: { lang: string; category: Category; slug: string }[] = [];
+  const locales = ['en', 'nl'];
+  for (const lang of locales) {
+    for (const category of CATEGORIES) {
+      const items = await getContent(category, lang);
+      for (const item of items) {
+        params.push({ lang, category, slug: item.id });
+      }
     }
   }
   return params;
 }
 
-export async function generateMetadata({ params }: { params: { category: Category; slug: string } }) {
-    const item = await getContentBySlug(params.category, params.slug);
+export async function generateMetadata({ params }: { params: { lang: string; category: Category; slug: string } }) {
+    const item = await getContentBySlug(params.category, params.slug, params.lang);
     if (!item) {
         return { title: 'Not Found' }
     }
@@ -31,18 +35,21 @@ export async function generateMetadata({ params }: { params: { category: Categor
     }
 }
 
-export default async function PostPage({ params }: { params: { category: Category; slug: string } }) {
+export default async function PostPage({ params }: { params: { lang: string; category: Category; slug: string } }) {
   if (!CATEGORIES.includes(params.category)) {
     notFound();
   }
 
-  const item = await getContentBySlug(params.category, params.slug);
+  const item = await getContentBySlug(params.category, params.slug, params.lang);
+  const dict = await getDictionary(params.lang);
 
   if (!item) {
     notFound();
   }
 
   const image = PlaceHolderImages.find((img) => img.id === item.thumbnail);
+  const availableLanguages = ['en', ...(Object.keys(item.translations || {}))];
+
 
   return (
     <article className="container max-w-4xl mx-auto px-4 py-8 md:py-12">
@@ -70,7 +77,7 @@ export default async function PostPage({ params }: { params: { category: Categor
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
             <div className="flex items-center">
                 <Calendar className="mr-2 h-4 w-4" />
-                {new Date(item.date).toLocaleDateString('en-US', {
+                {new Date(item.date).toLocaleDateString(params.lang, {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric',
@@ -78,12 +85,24 @@ export default async function PostPage({ params }: { params: { category: Categor
             </div>
             <div className="flex items-center">
                 <User className="mr-2 h-4 w-4" />
-                <Link href="/about" className="hover:text-primary">
-                    Author
+                <Link href={`/${params.lang}/about`} className="hover:text-primary">
+                    {dict.post_page.author}
                 </Link>
             </div>
             {item.rating !== undefined && params.category === 'reviews' && (
                 <StarRating rating={item.rating} />
+            )}
+            {item.translations && (
+                 <div className="flex items-center gap-2">
+                    <Languages className="mr-1 h-4 w-4" />
+                    {availableLanguages.map(langCode => (
+                        <Link key={langCode} href={`/${langCode}/${params.category}/${params.slug}`} passHref>
+                            <Badge variant={params.lang === langCode ? 'default' : 'secondary'} className="cursor-pointer">
+                                {langCode.toUpperCase()}
+                            </Badge>
+                        </Link>
+                    ))}
+                </div>
             )}
         </div>
       </header>
@@ -101,10 +120,10 @@ export default async function PostPage({ params }: { params: { category: Categor
       
       {item.tags && item.tags.length > 0 && (
         <footer className="mt-12 border-t pt-6">
-            <h3 className="text-sm font-semibold mb-3 text-muted-foreground">TAGS</h3>
+            <h3 className="text-sm font-semibold mb-3 text-muted-foreground">{dict.post_page.tags}</h3>
             <div className="flex flex-wrap gap-2">
                 {item.tags.map((tag) => (
-                    <Link key={tag} href={`/${params.category}?tags=${tag}`} passHref>
+                    <Link key={tag} href={`/${params.lang}/${params.category}?tags=${tag}`} passHref>
                         <Badge variant="secondary" className="text-sm hover:bg-accent hover:text-accent-foreground cursor-pointer">
                             {tag}
                         </Badge>

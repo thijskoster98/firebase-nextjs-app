@@ -27,7 +27,7 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-export default function ContactForm() {
+export default function ContactForm({ dict }: { dict: any }) {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -53,14 +53,14 @@ export default function ContactForm() {
 
     if (result.success) {
       toast({
-        title: 'Message Sent!',
-        description: 'Thank you for reaching out. I will get back to you shortly.',
+        title: dict.form_success_title,
+        description: dict.form_success_description,
       });
       form.reset();
     } else {
       toast({
         variant: 'destructive',
-        title: 'Oh no! Something went wrong.',
+        title: dict.form_error_title,
         description: result.message || 'There was a problem with your request.',
       });
     }
@@ -81,9 +81,9 @@ export default function ContactForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>{dict.form_name_label}</FormLabel>
               <FormControl>
-                <Input placeholder="Your Name" {...field} />
+                <Input placeholder={dict.form_name_placeholder} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -94,9 +94,9 @@ export default function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{dict.form_email_label}</FormLabel>
               <FormControl>
-                <Input placeholder="your.email@example.com" {...field} />
+                <Input placeholder={dict.form_email_placeholder} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -107,9 +107,9 @@ export default function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel>{dict.form_message_label}</FormLabel>
               <FormControl>
-                <Textarea placeholder="Your message..." {...field} rows={5} />
+                <Textarea placeholder={dict.form_message_placeholder} {...field} rows={5} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -127,7 +127,7 @@ export default function ContactForm() {
           )}
         />
         <Button type="submit" className="w-full" disabled={isSubmitting}>
-          {isSubmitting ? 'Sending...' : 'Send Message'}
+          {isSubmitting ? dict.form_sending_button : dict.form_submit_button}
         </Button>
       </form>
     </Form>

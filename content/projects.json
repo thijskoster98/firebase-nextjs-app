@@ -8,7 +8,15 @@
     "content": "<div><p>This project is a practical implementation of a 'No CMS' philosophy. By storing all content—from project descriptions to essays—in structured JSON files within the GitHub repository, the entire site becomes version-controlled, transparent, and easily editable with a simple text editor. The front-end, built with Next.js and Tailwind CSS, is a static-first application that fetches and renders this data at build time, ensuring maximum performance and security.</p><p>Key features include a client-side search function written in plain JavaScript, dynamic page generation for categories and individual posts, and a clean, responsive design. The workflow is streamlined: edit a JSON file, commit, and deploy. It's an exercise in simplicity and developer-centric content management.</p></div>",
     "date": "2024-07-20",
     "tags": ["nextjs", "react", "tailwindcss", "json", "architecture"],
-    "thumbnail": "project-1-thumb"
+    "thumbnail": "project-1-thumb",
+    "translations": {
+      "nl": {
+        "title": "JSON-aangedreven Portfolio",
+        "subtitle": "Deze Zelfgemaakte Website",
+        "intro": "Een minimale, snelle persoonlijke portfoliowebsite waarbij alle content afkomstig is van lokale JSON-bestanden, met de nadruk op een content-als-data-architectuur.",
+        "content": "<div><p>Dit project is een praktische implementatie van een 'Geen CMS'-filosofie. Door alle content — van projectbeschrijvingen tot essays — op te slaan in gestructureerde JSON-bestanden binnen de GitHub-repository, wordt de hele site versiebeheerd, transparant en gemakkelijk te bewerken met een eenvoudige teksteditor. De front-end, gebouwd met Next.js en Tailwind CSS, is een static-first applicatie die deze gegevens ophaalt en rendert tijdens de build, wat maximale prestaties en veiligheid garandeert.</p><p>Belangrijke kenmerken zijn een client-side zoekfunctie geschreven in puur JavaScript, dynamische paginageneratie voor categorieën en individuele posts, en een strak, responsief ontwerp. De workflow is gestroomlijnd: bewerk een JSON-bestand, commit en deploy. Het is een oefening in eenvoud en ontwikkelaar-gericht contentbeheer.</p></div>"
+      }
+    }
   },
   {
     "id": "data-visualization-kit",

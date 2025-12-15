@@ -1,0 +1,76 @@
+
+{
+    "header": {
+        "home": "Home",
+        "projects": "Projecten",
+        "essays": "Essays",
+        "reviews": "Recensies",
+        "memos": "Memo's",
+        "about": "Over Mij",
+        "cv_contact": "CV & Contact"
+    },
+    "footer": {
+        "built_with": "Gebouwd met Next.js en content uit JSON-bestanden.",
+        "copyright": "© {year} JSON Portfolio. Alle Rechten Voorbehouden."
+    },
+    "homepage": {
+        "title": "Een Persoonlijke Ruimte voor Ideeën & Werk",
+        "intro_p1": "Hallo! Ik ben een gepassioneerde ontwikkelaar met een liefde voor schone code, elegant design en het bouwen van dingen voor het web. Mijn reis in de technologie begon met een fascinatie voor hoe software problemen uit de echte wereld kan oplossen.",
+        "intro_p2": "Deze website is een persoonlijk project waar ik verschillende technologieën verken en mijn gedachten deel over design, ontwikkeling en alles daartussenin. Het is gebouwd op een fundament van eenvoud, met Next.js en Tailwind CSS, waarbij alle content wordt beheerd via simpele JSON-bestanden in een Git-repository.",
+        "signature": "- John Doe",
+        "more_about_me": "Meer Over Mij",
+        "cv_contact": "CV & Contact",
+        "latest": "Nieuwste"
+    },
+    "category_page": {
+        "intro": "Welkom bij de {category} sectie. Hier kun je door alle items bladeren, zoeken op trefwoord, of filteren op specifieke tags om precies te vinden wat je zoekt. Deze verzameling is onderdeel van een groter persoonlijk project waarin ik verschillende technologieën verken en gedachten deel over design, ontwikkeling en alles daartussenin.",
+        "search_placeholder": "Zoek in {category}...",
+        "filter_by_tag": "Filter op tag:",
+        "clear_filters": "Filters wissen",
+        "no_results_title": "Geen resultaten gevonden",
+        "no_results_description": "Probeer je zoekopdracht of filters aan te passen."
+    },
+    "post_page": {
+        "author": "Auteur",
+        "tags": "TAGS"
+    },
+    "about_page": {
+        "title": "Over Mij",
+        "role": "Full Stack Ontwikkelaar",
+        "intro_p1": "Hallo! Ik ben een gepassioneerde ontwikkelaar met een liefde voor schone code, elegant design en het bouwen van dingen voor het web. Mijn reis in de technologie begon met een fascinatie voor hoe software problemen uit de echte wereld kan oplossen.",
+        "intro_p2": "Deze website is een persoonlijk project waar ik verschillende technologieën verken en mijn gedachten deel over design, ontwikkeling en alles daartussenin. Het is gebouwd op een fundament van eenvoud, met Next.js en Tailwind CSS, waarbij alle content wordt beheerd via simpele JSON-bestanden in een Git-repository. Deze 'content-as-data' aanpak weerspiegelt mijn geloof in transparante, ontwikkelaar-vriendelijke systemen.",
+        "intro_p3": "Als ik niet aan het coderen ben, kun je me vinden in nieuwe koffietentjes, sciencefictionromans lezend, of knutselend aan mijn nieuwste zijproject. Ik ben altijd leergierig en leg graag contact met anderen die mijn interesses delen.",
+        "get_in_touch": "Neem gerust <a href=\"/{locale}/cv-contact\">contact op</a> of verbind met mij op sociale media."
+    },
+    "cv_contact_page": {
+        "title": "CV & Contact",
+        "intro": "Hier kun je mijn CV direct bekijken of een PDF-kopie downloaden. Voor vragen kun je het contactformulier gebruiken.",
+        "cv_title": "Curriculum Vitae",
+        "cv_description": "Een overzicht van mijn professionele ervaring en vaardigheden.",
+        "download_pdf": "Download PDF",
+        "get_in_touch": "Neem Contact Op",
+        "contact_me_title": "Contacteer Mij",
+        "contact_me_description": "Ik neem zo snel mogelijk contact met je op.",
+        "form_name_label": "Naam",
+        "form_name_placeholder": "Jouw Naam",
+        "form_email_label": "E-mail",
+        "form_email_placeholder": "jouw.email@voorbeeld.com",
+        "form_message_label": "Bericht",
+        "form_message_placeholder": "Jouw bericht...",
+        "form_submit_button": "Verstuur Bericht",
+        "form_sending_button": "Verzenden...",
+        "form_success_title": "Bericht Verzonden!",
+        "form_success_description": "Bedankt voor je bericht. Ik neem zo snel mogelijk contact met je op.",
+        "form_error_title": "Oeps! Er ging iets mis."
+    },
+    "item_card": {
+        "read_more": "Lees Meer"
+    },
+    "language_switcher": {
+        "label": "Verander taal",
+        "en": "Engels",
+        "nl": "Nederlands"
+    }
+}
+
+  

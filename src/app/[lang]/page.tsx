@@ -1,4 +1,3 @@
-
 import { getLatestContent } from '@/lib/content';
 import type { Category } from '@/lib/types';
 import ItemCard from '@/components/content/item-card';
@@ -7,16 +6,19 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { getDictionary } from '@/lib/dictionaries';
 
-const categoryDisplayNames: Record<Category, string> = {
-  projects: 'Projects',
-  essays: 'Essays',
-  reviews: 'Reviews',
-  memos: 'Memos',
-};
+export default async function Home({ params: { lang } }: { params: { lang: string } }) {
+  const latestContent = await getLatestContent(lang);
+  const dict = await getDictionary(lang);
+  
+  const categoryDisplayNames: Record<Category, string> = {
+    projects: dict.header.projects,
+    essays: dict.header.essays,
+    reviews: dict.header.reviews,
+    memos: dict.header.memos,
+  };
 
-export default async function Home() {
-  const latestContent = await getLatestContent();
   const categories = Object.keys(latestContent).filter(
     (key) => latestContent[key as Category] && latestContent[key as Category]!.length > 0
   ) as Category[];
@@ -37,26 +39,26 @@ export default async function Home() {
             data-ai-hint={bannerImage.imageHint}
           />
            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
-        </section>
+        </section>      
       )}
 
       <section className="bg-muted">
         <div className="container px-4 py-8 md:py-12 grid md:grid-cols-3 gap-8 md:gap-12 items-center">
           <div className="md:col-span-2">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
-              A Personal Space for Ideas & Work
+              {dict.homepage.title}
             </h1>
-            <div className="prose prose-lg dark:prose-invert max-w-none columns-1 md:columns-2 gap-x-8">
+            <div className="prose prose-lg dark:prose-invert max-w-none">
               <p>
-                Hello! I'm a passionate developer with a love for clean code, elegant design, and building things for the web. My journey into technology started with a fascination for how software can solve real-world problems.
+                {dict.homepage.intro_p1}
               </p>
               <p>
-                This website is a personal project where I explore different technologies and share my thoughts on design, development, and everything in between. It's built on a foundation of simplicity, using Next.js and Tailwind CSS, with all content managed through simple JSON files in a Git repository.
+                {dict.homepage.intro_p2}
               </p>
             </div>
-             <p className="font-headline text-2xl mt-6 text-right mr-4">- John Doe</p>
+             <p className="font-headline text-2xl mt-6 text-right mr-4">{dict.homepage.signature}</p>
           </div>
-          <div className="md:col-span-1 flex flex-col items-center -mt-64">
+          <div className="md:col-span-1 flex flex-col items-center -mt-64 md:-mt-80">
             {authorImage && (
               <div className="relative aspect-square w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-lg mb-4 ring-4 ring-background">
                 <Image
@@ -70,14 +72,14 @@ export default async function Home() {
             )}
              <div className="flex flex-col space-y-2 w-full max-w-[16rem] mx-auto">
                 <Button asChild variant="outline">
-                    <Link href="/about">
-                        More About Me
+                    <Link href={`/${lang}/about`}>
+                        {dict.homepage.more_about_me}
                         <ArrowRight className="ml-2" />
                     </Link>
                 </Button>
                 <Button asChild variant="secondary">
-                    <Link href="/cv-contact">
-                        CV & Contact
+                    <Link href={`/${lang}/cv-contact`}>
+                        {dict.homepage.cv_contact}
                     </Link>
                 </Button>
             </div>
@@ -95,10 +97,10 @@ export default async function Home() {
               <section key={category}>
                 <div className="flex justify-between items-center mb-6 border-b pb-2">
                   <h2 className="text-3xl font-bold">
-                    Latest {categoryDisplayNames[category]}
+                    {dict.homepage.latest} {categoryDisplayNames[category]}
                   </h2>
                   <Button asChild variant="ghost">
-                      <Link href={`/${category}`}>
+                      <Link href={`/${lang}/${category}`}>
                           View All <ArrowRight className="ml-2" />
                       </Link>
                   </Button>
@@ -106,7 +108,7 @@ export default async function Home() {
                 <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
                   {items.map(item => {
                       const image = PlaceHolderImages.find(img => img.id === item.thumbnail);
-                      return <ItemCard key={item.id} item={item} category={category} image={image} showTags={true} />;
+                      return <ItemCard key={item.id} item={item} category={category} lang={lang} dict={dict} showTags={true} />;
                   })}
                 </div>
               </section>

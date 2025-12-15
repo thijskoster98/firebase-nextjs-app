@@ -2,29 +2,34 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 import ContactForm from '@/components/forms/contact-form';
+import { getDictionary } from '@/lib/dictionaries';
 
-export const metadata = {
-  title: 'CV & Contact | JSON Portfolio',
-  description: 'Download my CV or get in touch using the contact form.',
-};
+export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
+    const dict = await getDictionary(lang);
+    return {
+      title: `${dict.cv_contact_page.title} | JSON Portfolio`,
+      description: 'Download my CV or get in touch using the contact form.',
+    }
+}
 
-export default function CVContactPage() {
+export default async function CVContactPage({ params: { lang } }: { params: { lang: string } }) {
   const cvPath = '/cv/cv.pdf'; // Assuming cv.pdf is in public/cv/
+  const dict = await getDictionary(lang);
 
   return (
     <div className="container mx-auto max-w-5xl px-4 py-8 md:py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <section>
-          <h1 className="text-4xl font-bold mb-4">CV & Contact</h1>
+          <h1 className="text-4xl font-bold mb-4">{dict.cv_contact_page.title}</h1>
           <p className="text-lg text-muted-foreground mb-8">
-            Here you can view my CV directly or download a PDF copy. For inquiries, please use the contact form.
+            {dict.cv_contact_page.intro}
           </p>
 
           <Card>
             <CardHeader>
-              <CardTitle>Curriculum Vitae</CardTitle>
+              <CardTitle>{dict.cv_contact_page.cv_title}</CardTitle>
               <CardDescription>
-                An overview of my professional experience and skills.
+                {dict.cv_contact_page.cv_description}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -38,7 +43,7 @@ export default function CVContactPage() {
               <Button asChild className="w-full">
                 <a href={cvPath} download="cv.pdf">
                   <Download className="mr-2 h-4 w-4" />
-                  Download PDF
+                  {dict.cv_contact_page.download_pdf}
                 </a>
               </Button>
             </CardContent>
@@ -46,16 +51,16 @@ export default function CVContactPage() {
         </section>
 
         <section>
-          <h2 className="text-3xl font-bold mb-4 md:mt-[6.5rem]">Get in Touch</h2>
+          <h2 className="text-3xl font-bold mb-4 md:mt-[6.5rem]">{dict.cv_contact_page.get_in_touch}</h2>
           <Card>
             <CardHeader>
-              <CardTitle>Contact Me</CardTitle>
+              <CardTitle>{dict.cv_contact_page.contact_me_title}</CardTitle>
               <CardDescription>
-                I'll get back to you as soon as possible.
+                {dict.cv_contact_page.contact_me_description}
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <ContactForm />
+              <ContactForm dict={dict.cv_contact_page} />
             </CardContent>
           </Card>
         </section>

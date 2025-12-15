@@ -1,0 +1,76 @@
+
+{
+    "header": {
+        "home": "Home",
+        "projects": "Projects",
+        "essays": "Essays",
+        "reviews": "Reviews",
+        "memos": "Memos",
+        "about": "About",
+        "cv_contact": "CV & Contact"
+    },
+    "footer": {
+        "built_with": "Built with Next.js and content from JSON files.",
+        "copyright": "© {year} JSON Portfolio. All Rights Reserved."
+    },
+    "homepage": {
+        "title": "A Personal Space for Ideas & Work",
+        "intro_p1": "Hello! I'm a passionate developer with a love for clean code, elegant design, and building things for the web. My journey into technology started with a fascination for how software can solve real-world problems.",
+        "intro_p2": "This website is a personal project where I explore different technologies and share my thoughts on design, development, and everything in between. It's built on a foundation of simplicity, using Next.js and Tailwind CSS, with all content managed through simple JSON files in a Git repository.",
+        "signature": "- John Doe",
+        "more_about_me": "More About Me",
+        "cv_contact": "CV & Contact",
+        "latest": "Latest"
+    },
+    "category_page": {
+        "intro": "Welcome to the {category} section. Here you can browse all entries, search by keyword, or filter by specific tags to find exactly what you're looking for. This collection is part of a larger personal project exploring different technologies and sharing thoughts on design, development, and everything in between.",
+        "search_placeholder": "Search in {category}...",
+        "filter_by_tag": "Filter by tag:",
+        "clear_filters": "Clear filters",
+        "no_results_title": "No results found",
+        "no_results_description": "Try adjusting your search or filters."
+    },
+    "post_page": {
+        "author": "Author",
+        "tags": "TAGS"
+    },
+    "about_page": {
+        "title": "About Me",
+        "role": "Full Stack Developer",
+        "intro_p1": "Hello! I'm a passionate developer with a love for clean code, elegant design, and building things for the web. My journey into technology started with a fascination for how software can solve real-world problems.",
+        "intro_p2": "This website is a personal project where I explore different technologies and share my thoughts on design, development, and everything in between. It's built on a foundation of simplicity, using Next.js and Tailwind CSS, with all content managed through simple JSON files in a Git repository. This 'content-as-data' approach reflects my belief in transparent, developer-friendly systems.",
+        "intro_p3": "When I'm not coding, you can find me exploring new coffee shops, reading science fiction novels, or tinkering with my latest side project. I'm always eager to learn and connect with others who share my interests.",
+        "get_in_touch": "Feel free to <a href=\"/{locale}/cv-contact\">get in touch</a> or connect with me on social media."
+    },
+    "cv_contact_page": {
+        "title": "CV & Contact",
+        "intro": "Here you can view my CV directly or download a PDF copy. For inquiries, please use the contact form.",
+        "cv_title": "Curriculum Vitae",
+        "cv_description": "An overview of my professional experience and skills.",
+        "download_pdf": "Download PDF",
+        "get_in_touch": "Get in Touch",
+        "contact_me_title": "Contact Me",
+        "contact_me_description": "I'll get back to you as soon as possible.",
+        "form_name_label": "Name",
+        "form_name_placeholder": "Your Name",
+        "form_email_label": "Email",
+        "form_email_placeholder": "your.email@example.com",
+        "form_message_label": "Message",
+        "form_message_placeholder": "Your message...",
+        "form_submit_button": "Send Message",
+        "form_sending_button": "Sending...",
+        "form_success_title": "Message Sent!",
+        "form_success_description": "Thank you for reaching out. I will get back to you shortly.",
+        "form_error_title": "Oh no! Something went wrong."
+    },
+    "item_card": {
+        "read_more": "Read More"
+    },
+    "language_switcher": {
+        "label": "Change language",
+        "en": "English",
+        "nl": "Dutch"
+    }
+}
+
+  
