@@ -1,3 +1,4 @@
+
 import { getLatestContent } from '@/lib/content';
 import type { Category } from '@/lib/types';
 import ItemCard from '@/components/content/item-card';
@@ -40,7 +41,7 @@ export default async function Home() {
       )}
 
       <section className="bg-muted">
-        <div className="container px-4 py-12 md:py-20 grid md:grid-cols-3 gap-8 md:gap-12 items-center">
+        <div className="container px-4 py-8 md:py-12 grid md:grid-cols-3 gap-8 md:gap-12 items-center">
           <div className="md:col-span-2">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
               A Personal Space for Ideas & Work
