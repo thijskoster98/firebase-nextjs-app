@@ -6,13 +6,9 @@ export const GBFlag = ({ className }: { className?: string }) => (
     viewBox="0 0 60 36"
     className={cn("h-auto", className)}
   >
-    <path fill="#012169" d="M0 0h60v36H0z"/>
-    <path fill="#FFF" d="m60 36-30-18-30 18V0h30v18zM0 0l30 18L60 0v36H30z"/>
-    <path fill="#C8102E" d="m60 36-3-1.8V0h3zM0 0l3 1.8V36H0zM25.5 18H0v3h25.5zM60 15H34.5v3H60z"/>
-    <path fill="#FFF" d="M0 36V0h60v36z"/>
-    <path fill="#C8102E" d="M0 15h60v6H0z"/>
-    <path fill="#FFF" d="M24 0h12v36H24z"/>
-    <path fill="#C8102E" d="M27 0h6v36h-6z"/>
+    <rect width="60" height="36" fill="#fff" />
+    <path fill="#C8102E" d="M24 0h12v36H24z" />
+    <path fill="#C8102E" d="M0 15h60v6H0z" />
   </svg>
 );
 
