@@ -1,4 +1,3 @@
-
 import { getContent, getContentBySlug } from '@/lib/content';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -8,15 +7,16 @@ import { CATEGORIES } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
 import StarRating from '@/components/ui/star-rating';
-import { Calendar, User, Languages } from 'lucide-react';
+import { Calendar, User } from 'lucide-react';
 import { getDictionary } from '@/lib/dictionaries';
+import { GBFlag, NLFlag } from '@/components/ui/flags';
+import { cn } from '@/lib/utils';
 
 export async function generateStaticParams() {
   const params: { lang: string; category: Category; slug: string }[] = [];
   const locales = ['en', 'nl'];
   for (const lang of locales) {
     for (const category of CATEGORIES) {
-      // Always get content in default language to generate params
       const items = await getContent(category, 'en'); 
       for (const item of items) {
         params.push({ lang, category, slug: item.id });
@@ -76,7 +76,7 @@ export default async function PostPage({ params }: { params: { lang: string; cat
             {item.subtitle}
           </p>
         )}
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-4 text-sm text-muted-foreground">
             <div className="flex items-center">
                 <Calendar className="mr-2 h-4 w-4" />
                 {new Date(item.date).toLocaleDateString(params.lang, {
@@ -94,18 +94,17 @@ export default async function PostPage({ params }: { params: { lang: string; cat
             {item.rating !== undefined && params.category === 'reviews' && (
                 <StarRating rating={item.rating} />
             )}
-            {item.translations && (
-                 <div className="flex items-center gap-2">
-                    <Languages className="mr-1 h-4 w-4" />
-                    {availableLanguages.map(langCode => (
-                        <Link key={langCode} href={`/${langCode}/${params.category}/${params.slug}`} passHref>
-                            <Badge variant={params.lang === langCode ? 'default' : 'secondary'} className="cursor-pointer">
-                                {langCode.toUpperCase()}
-                            </Badge>
+            <div className="flex items-center gap-2">
+                {availableLanguages.map(langCode => {
+                    const Flag = langCode === 'nl' ? NLFlag : GBFlag;
+                    const flagUrl = `/${langCode}/${params.category}/${params.slug}`;
+                    return (
+                        <Link key={langCode} href={flagUrl} passHref>
+                           <Flag className={cn("h-6 w-6 rounded-sm cursor-pointer border border-border/20 transition-opacity hover:opacity-80", params.lang === langCode && "ring-2 ring-primary ring-offset-2 ring-offset-background")} />
                         </Link>
-                    ))}
-                </div>
-            )}
+                    )
+                })}
+            </div>
         </div>
       </header>
 
