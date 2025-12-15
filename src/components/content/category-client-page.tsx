@@ -122,7 +122,7 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
 
       <section className="bg-muted">
         <div className="container px-4 py-8 grid md:grid-cols-3 gap-8 md:gap-12 items-center">
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 order-2 md:order-1">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
               {categoryName}
             </h1>
@@ -133,7 +133,7 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
             </div>
              <p className="font-headline text-2xl mt-6 text-right mr-4">{dict.homepage.signature}</p>
           </div>
-          <div className="md:col-span-1 flex flex-col items-center -mt-48">
+          <div className="md:col-span-1 flex flex-col items-center order-1 md:order-2 -mt-48">
             {authorImage && (
               <div className="relative aspect-square w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-lg mb-4 ring-4 ring-background">
                 <Image
@@ -152,9 +152,10 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
                         <ArrowRight className="ml-2" />
                     </Link>
                 </Button>
-                <Button asChild variant="secondary">
+                <Button asChild variant="outline">
                     <Link href={`/${lang}/cv-contact`}>
                         {dict.homepage.cv_contact}
+                        <ArrowRight className="ml-2" />
                     </Link>
                 </Button>
             </div>

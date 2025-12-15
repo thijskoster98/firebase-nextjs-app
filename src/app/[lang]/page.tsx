@@ -44,7 +44,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
 
       <section className="bg-muted">
         <div className="container px-4 py-8 md:py-12 grid md:grid-cols-3 gap-8 md:gap-12 items-center">
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 order-2 md:order-1">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
               {dict.homepage.title}
             </h1>
@@ -58,7 +58,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
             </div>
              <p className="font-headline text-2xl mt-6 text-right mr-4">{dict.homepage.signature}</p>
           </div>
-          <div className="md:col-span-1 flex flex-col items-center -mt-64 md:-mt-80">
+          <div className="md:col-span-1 flex flex-col items-center order-1 md:order-2 -mt-64 md:-mt-80">
             {authorImage && (
               <div className="relative aspect-square w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-lg mb-4 ring-4 ring-background">
                 <Image
@@ -77,9 +77,10 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                         <ArrowRight className="ml-2" />
                     </Link>
                 </Button>
-                <Button asChild variant="secondary">
+                <Button asChild variant="outline">
                     <Link href={`/${lang}/cv-contact`}>
                         {dict.homepage.cv_contact}
+                        <ArrowRight className="ml-2" />
                     </Link>
                 </Button>
             </div>
