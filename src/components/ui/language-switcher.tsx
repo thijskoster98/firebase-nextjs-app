@@ -1,8 +1,8 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
 import { GBFlag, NLFlag } from '@/components/ui/flags';
+import { cn } from '@/lib/utils';
 
 export default function LanguageSwitcher() {
   const pathname = usePathname();
@@ -18,8 +18,18 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <Button variant="ghost" size="icon" onClick={handleLanguageChange} aria-label="Change language">
-        {isEnglish ? <NLFlag className="h-6 w-6" /> : <GBFlag className="h-6 w-6" />}
-    </Button>
+    <div className="flex items-center gap-2">
+        <GBFlag className="w-6" />
+        <div 
+            onClick={handleLanguageChange}
+            className={cn(
+                "relative w-10 h-6 rounded-full p-1 flex items-center cursor-pointer transition-colors",
+                isEnglish ? "bg-muted justify-start" : "bg-primary justify-end"
+            )}
+        >
+            <div className="w-4 h-4 bg-background rounded-full shadow-md transform transition-transform" />
+        </div>
+        <NLFlag className="w-6" />
+    </div>
   );
 }

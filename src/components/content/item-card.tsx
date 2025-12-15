@@ -38,7 +38,7 @@ export default function ItemCard({ item, category, image, showTags = false, lang
                   data-ai-hint={image.imageHint}
                 />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/50 transition-colors flex items-center justify-center">
-                  <div className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input h-10 px-4 py-2 text-white border-white/50 hover:bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input h-10 px-4 py-2 bg-transparent text-white border-white/50 hover:bg-white/10 hover:text-white opacity-0 group-hover:opacity-100 transition-opacity">
                       {dict.item_card.read_more} <ArrowRight className="ml-2 h-4 w-4" />
                   </div>
                 </div>
@@ -77,7 +77,7 @@ export default function ItemCard({ item, category, image, showTags = false, lang
                     const flagUrl = `/${langCode}/${category}/${item.id}`;
                     return (
                         <Link key={langCode} href={flagUrl} passHref>
-                           <Flag className={cn("h-5 w-5 rounded-sm cursor-pointer border border-border/20 transition-opacity hover:opacity-80", lang === langCode && "ring-2 ring-primary ring-offset-2 ring-offset-background")} />
+                           <Flag className={cn("w-6 rounded-sm cursor-pointer transition-opacity hover:opacity-80", lang === langCode && "ring-2 ring-primary ring-offset-2 ring-offset-background")} />
                         </Link>
                     )
                 })}
