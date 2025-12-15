@@ -75,5 +75,11 @@
         "label": "Change language",
         "en": "English",
         "nl": "Dutch"
+    },
+    "notifications": {
+        "unavailable_translation": {
+            "title": "Translation Unavailable",
+            "description": "This content is not available in your selected language. Showing the default version instead."
+        }
     }
 }

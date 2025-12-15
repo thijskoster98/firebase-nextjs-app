@@ -11,6 +11,7 @@ import { Calendar, User } from 'lucide-react';
 import { getDictionary } from '@/lib/dictionaries';
 import { GBFlag, NLFlag } from '@/components/ui/flags';
 import { cn } from '@/lib/utils';
+import LanguageAvailabilityToast from '@/components/content/language-availability-toast';
 
 export async function generateStaticParams() {
   const params: { lang: string; category: Category; slug: string }[] = [];
@@ -50,11 +51,15 @@ export default async function PostPage({ params }: { params: { lang: string; cat
   }
 
   const image = PlaceHolderImages.find((img) => img.id === item.thumbnail);
-  const availableLanguages = ['en', ...(Object.keys(item.translations || {}))];
+  
+  const originalItem = await getContentBySlug(params.category, item.id, 'en');
+  const availableLanguages = ['en', ...(Object.keys(originalItem?.translations || {}))];
+  const isAvailableInLang = availableLanguages.includes(params.lang);
 
 
   return (
     <article className="container max-w-4xl mx-auto px-4 py-8 md:py-12">
+       <LanguageAvailabilityToast isAvailableInLang={isAvailableInLang} lang={params.lang} />
       <header className="mb-8">
         {image && (
           <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden mb-8 shadow-lg">

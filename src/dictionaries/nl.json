@@ -75,5 +75,11 @@
         "label": "Verander taal",
         "en": "Engels",
         "nl": "Nederlands"
+    },
+    "notifications": {
+        "unavailable_translation": {
+            "title": "Vertaling niet beschikbaar",
+            "description": "Deze inhoud is niet beschikbaar in de geselecteerde taal. De standaardversie wordt getoond."
+        }
     }
 }
