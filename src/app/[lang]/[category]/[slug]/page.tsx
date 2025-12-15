@@ -1,3 +1,4 @@
+
 import { getContent, getContentBySlug } from '@/lib/content';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -15,7 +16,8 @@ export async function generateStaticParams() {
   const locales = ['en', 'nl'];
   for (const lang of locales) {
     for (const category of CATEGORIES) {
-      const items = await getContent(category, lang);
+      // Always get content in default language to generate params
+      const items = await getContent(category, 'en'); 
       for (const item of items) {
         params.push({ lang, category, slug: item.id });
       }
@@ -123,7 +125,7 @@ export default async function PostPage({ params }: { params: { lang: string; cat
             <h3 className="text-sm font-semibold mb-3 text-muted-foreground">{dict.post_page.tags}</h3>
             <div className="flex flex-wrap gap-2">
                 {item.tags.map((tag) => (
-                    <Link key={tag} href={`/${params.lang}/${params.category}?tags=${tag}`} passHref>
+                    <Link key={tag} href={`/${lang}/${params.category}?tags=${tag}`} passHref>
                         <Badge variant="secondary" className="text-sm hover:bg-accent hover:text-accent-foreground cursor-pointer">
                             {tag}
                         </Badge>
