@@ -17,7 +17,6 @@
         "title": "Een Persoonlijke Ruimte voor Ideeën & Werk",
         "intro_p1": "Hallo! Ik ben een gepassioneerde ontwikkelaar met een liefde voor schone code, elegant design en het bouwen van dingen voor het web. Mijn reis in de technologie begon met een fascinatie voor hoe software problemen uit de echte wereld kan oplossen.",
         "intro_p2": "Deze website is een persoonlijk project waar ik verschillende technologieën verken en mijn gedachten deel over design, ontwikkeling en alles daartussenin. Het is gebouwd op een fundament van eenvoud, met Next.js en Tailwind CSS, waarbij alle content wordt beheerd via simpele JSON-bestanden in een Git-repository.",
-        "signature": "- John Doe",
         "more_about_me": "Meer Over Mij",
         "cv_contact": "CV & Contact",
         "latest": "Nieuwste"

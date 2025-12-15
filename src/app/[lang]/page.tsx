@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { getDictionary } from '@/lib/dictionaries';
+import Signature from '@/components/ui/signature';
 
 export default async function Home({ params: { lang } }: { params: { lang: string } }) {
   const latestContent = await getLatestContent(lang);
@@ -56,7 +57,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                 {dict.homepage.intro_p2}
               </p>
             </div>
-             <p className="font-headline text-2xl mt-6 text-right mr-4">{dict.homepage.signature}</p>
+             <Signature className="h-12 w-auto mt-6 text-foreground ml-auto block mr-4" />
           </div>
           <div className="md:col-span-1 flex flex-col items-center order-1 md:order-2 -mt-32 md:-mt-80">
             {authorImage && (

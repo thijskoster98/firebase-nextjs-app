@@ -11,6 +11,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Search, X, ArrowRight } from 'lucide-react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Separator } from '../ui/separator';
+import Signature from '../ui/signature';
 
 interface CategoryClientPageProps {
   items: PortfolioItem[];
@@ -45,12 +46,10 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
       .filter((item) => {
         // Language filtering
         if (languageFilter === 'en') {
-          const originalItem = items.find(i => i.id === item.id);
-          return !(originalItem?.translations && originalItem.translations.nl) || lang === 'en';
+          return !item.translations?.nl;
         }
         if (languageFilter === 'nl') {
-          const originalItem = items.find(i => i.id === item.id);
-          return !!(originalItem?.translations && originalItem.translations.nl);
+          return !!item.translations?.nl;
         }
         return true; // 'all'
       })
@@ -80,7 +79,7 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
           .toLowerCase();
         return contentToSearch.includes(query);
       });
-  }, [items, searchQuery, selectedTags, languageFilter, lang]);
+  }, [items, searchQuery, selectedTags, languageFilter]);
 
   const toggleTag = (tag: string) => {
     const newTags = selectedTags.includes(tag)
@@ -131,7 +130,7 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
                 {dict.category_page.intro.replace('{category}', categoryName.toLowerCase())}
               </p>
             </div>
-             <p className="font-headline text-2xl mt-6 text-right mr-4">{dict.homepage.signature}</p>
+             <Signature className="h-12 w-auto mt-6 text-foreground ml-auto block mr-4" />
           </div>
           <div className="md:col-span-1 flex flex-col items-center order-1 md:order-2 -mt-24 md:-mt-48">
             {authorImage && (

@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import type { PortfolioItem, Category } from '@/lib/types';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { Calendar, ArrowRight } from 'lucide-react';

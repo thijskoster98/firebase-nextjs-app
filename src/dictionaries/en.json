@@ -17,7 +17,6 @@
         "title": "A Personal Space for Ideas & Work",
         "intro_p1": "Hello! I'm a passionate developer with a love for clean code, elegant design, and building things for the web. My journey into technology started with a fascination for how software can solve real-world problems.",
         "intro_p2": "This website is a personal project where I explore different technologies and share my thoughts on design, development, and everything in between. It's built on a foundation of simplicity, using Next.js and Tailwind CSS, with all content managed through simple JSON files in a Git repository.",
-        "signature": "- John Doe",
         "more_about_me": "More About Me",
         "cv_contact": "CV & Contact",
         "latest": "Latest"
