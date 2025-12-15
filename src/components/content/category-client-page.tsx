@@ -127,7 +127,7 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
           </div>
         </div>
 
-      <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
+      <div className="grid md:grid-cols-2 gap-x-8 gap-y-16">
         {filteredItems.length > 0 ? (
           filteredItems.map((item) => {
             const image = PlaceHolderImages.find(img => img.id === item.thumbnail);

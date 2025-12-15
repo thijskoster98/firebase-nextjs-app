@@ -17,10 +17,10 @@ export default function ItemCard({ item, category, image }: ItemCardProps) {
   const itemUrl = `/${category}/${item.id}`;
 
   return (
-    <Card className="group flex flex-col overflow-hidden h-full transition-shadow hover:shadow-lg">
+    <Card className="group flex flex-col overflow-hidden h-full transition-shadow hover:shadow-lg rounded-lg">
         <div className="flex flex-col md:flex-row flex-grow">
             {image && (
-                <div className="w-full md:w-2/5 aspect-video md:aspect-auto relative shrink-0">
+                <div className="w-full md:w-2/5 aspect-video md:aspect-square relative shrink-0">
                 <Link href={itemUrl} className="block h-full">
                     <Image
                     src={image.imageUrl}
@@ -29,7 +29,7 @@ export default function ItemCard({ item, category, image }: ItemCardProps) {
                     className="object-cover"
                     data-ai-hint={image.imageHint}
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/50 transition-colors flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/50 transition-colors flex items-center justify-center">
                     <Button asChild variant="outline" className="bg-transparent text-white border-white/50 hover:bg-white/10 hover:text-white opacity-0 group-hover:opacity-100 transition-opacity">
                         <Link href={itemUrl}>
                         Read More <ArrowRight className="ml-2 h-4 w-4" />
