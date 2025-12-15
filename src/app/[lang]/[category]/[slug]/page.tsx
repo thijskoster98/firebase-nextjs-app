@@ -125,7 +125,7 @@ export default async function PostPage({ params }: { params: { lang: string; cat
             <h3 className="text-sm font-semibold mb-3 text-muted-foreground">{dict.post_page.tags}</h3>
             <div className="flex flex-wrap gap-2">
                 {item.tags.map((tag) => (
-                    <Link key={tag} href={`/${lang}/${params.category}?tags=${tag}`} passHref>
+                    <Link key={tag} href={`/${params.lang}/${params.category}?tags=${tag}`} passHref>
                         <Badge variant="secondary" className="text-sm hover:bg-accent hover:text-accent-foreground cursor-pointer">
                             {tag}
                         </Badge>
