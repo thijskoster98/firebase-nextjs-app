@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import type { PortfolioItem, Category } from '@/lib/types';
 import { CATEGORY_DISPLAY_NAMES } from '@/lib/types';
 import ItemCard from '@/components/content/item-card';
@@ -8,6 +8,8 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Search, X } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
+
 
 interface CategoryClientPageProps {
   items: PortfolioItem[];
@@ -16,8 +18,16 @@ interface CategoryClientPageProps {
 }
 
 export default function CategoryClientPage({ items, category, allTags }: CategoryClientPageProps) {
+  const searchParams = useSearchParams();
+  const initialTags = searchParams.get('tags');
+  
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedTags, setSelectedTags] = useState<string[]>(initialTags ? initialTags.split(',') : []);
+
+  useEffect(() => {
+    const newTags = searchParams.get('tags');
+    setSelectedTags(newTags ? newTags.split(',') : []);
+  }, [searchParams]);
 
   const filteredItems = useMemo(() => {
     return items
@@ -49,10 +59,28 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
   }, [items, searchQuery, selectedTags]);
 
   const toggleTag = (tag: string) => {
-    setSelectedTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
-    );
+    const newTags = selectedTags.includes(tag)
+      ? selectedTags.filter((t) => t !== tag)
+      : [...selectedTags, tag];
+
+    const newParams = new URLSearchParams(window.location.search);
+    if (newTags.length > 0) {
+        newParams.set('tags', newTags.join(','));
+    } else {
+        newParams.delete('tags');
+    }
+    
+    // Using window.history.pushState to avoid a full page reload, for a smoother UX
+    window.history.pushState({}, '', `${window.location.pathname}?${newParams.toString()}`);
+    setSelectedTags(newTags);
   };
+
+  const clearFilters = () => {
+    const newParams = new URLSearchParams(window.location.search);
+    newParams.delete('tags');
+    window.history.pushState({}, '', `${window.location.pathname}?${newParams.toString()}`);
+    setSelectedTags([]);
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -90,7 +118,7 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
               </Button>
             ))}
              {selectedTags.length > 0 && (
-                <Button variant="ghost" size="sm" onClick={() => setSelectedTags([])}>
+                <Button variant="ghost" size="sm" onClick={clearFilters}>
                     Clear filters
                 </Button>
             )}
@@ -101,7 +129,7 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
         {filteredItems.length > 0 ? (
           filteredItems.map((item) => {
             const image = PlaceHolderImages.find(img => img.id === item.thumbnail);
-            return <ItemCard key={item.id} item={item} category={category} image={image} />;
+            return <ItemCard key={item.id} item={item} category={category} image={image} showTags={true} />;
           })
         ) : (
           <div className="text-center py-16 border-2 border-dashed rounded-lg md:col-span-2">
