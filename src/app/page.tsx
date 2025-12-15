@@ -39,7 +39,7 @@ export default async function Home() {
         </section>
       )}
 
-      <section className="bg-muted -mt-16">
+      <section className="bg-muted">
         <div className="container px-4 py-12 md:py-20 grid md:grid-cols-3 gap-8 md:gap-12 items-center">
           <div className="md:col-span-2">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
@@ -55,7 +55,7 @@ export default async function Home() {
             </div>
              <p className="font-headline text-2xl mt-6 text-right mr-4">- John Doe</p>
           </div>
-          <div className="md:col-span-1 flex flex-col items-center">
+          <div className="md:col-span-1 flex flex-col items-center -mt-32">
             {authorImage && (
               <div className="relative aspect-square w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-lg mb-4 ring-4 ring-background">
                 <Image

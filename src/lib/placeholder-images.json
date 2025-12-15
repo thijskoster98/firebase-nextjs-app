@@ -129,8 +129,14 @@
     {
       "id": "homepage-banner",
       "description": "Wide panoramic of a minimal modern desk setup",
-      "imageUrl": "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aWRlJTIwZGVzayUyMHNldHVwfGVufDB8fHx8MTc2NjM5ODg1M3ww&ixlib=rb-4.1.0&q=80&w=1920",
+      "imageUrl": "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aWRlJTIwZGVzayUyMHNldHVwfGVufDB8fHx8MTc2NjM5ODg1M3ww&ixlib.rb-4.1.0&q=80&w=1920",
       "imageHint": "desk setup"
+    },
+    {
+      "id": "category-banner",
+      "description": "Abstract gradient background",
+      "imageUrl": "https://images.unsplash.com/photo-1557682250-33bd709cbe85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMGdyYWRpZW50fGVufDB8fHx8MTc2NjU5MTI4Nnww&ixlib=rb-4.1.0&q=80&w=1920",
+      "imageHint": "abstract gradient"
     }
   ]
 }
