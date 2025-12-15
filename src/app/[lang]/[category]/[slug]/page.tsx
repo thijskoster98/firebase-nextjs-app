@@ -59,7 +59,11 @@ export default async function PostPage({ params }: { params: { lang: string; cat
 
   return (
     <article className="container max-w-4xl mx-auto px-4 py-8 md:py-12">
-       <LanguageAvailabilityToast isAvailableInLang={isAvailableInLang} lang={params.lang} />
+       <LanguageAvailabilityToast 
+        isAvailableInLang={isAvailableInLang} 
+        lang={params.lang} 
+        dictUnavailableTranslation={dict.notifications.unavailable_translation}
+      />
       <header className="mb-8">
         {image && (
           <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden mb-8 shadow-lg">
