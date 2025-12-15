@@ -29,8 +29,8 @@ export default function HomepageItemCard({ item, category, image }: HomepageItem
               className="object-cover"
               data-ai-hint={image.imageHint}
             />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors flex items-center justify-center">
-              <Button asChild variant="outline" className="bg-transparent text-white border-white/50 hover:bg-white/10 hover:text-white">
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors flex items-center justify-center">
+              <Button asChild variant="outline" className="bg-transparent text-white border-white/50 hover:bg-white/10 hover:text-white opacity-0 group-hover:opacity-100 transition-opacity">
                 <Link href={itemUrl}>
                   Read More <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
