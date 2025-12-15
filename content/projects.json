@@ -19,5 +19,35 @@
     "date": "2023-11-05",
     "tags": ["react", "typescript", "data-visualization", "library", "design-systems"],
     "thumbnail": "project-2-thumb"
+  },
+  {
+    "id": "ai-powered-chat-agent",
+    "title": "AI-Powered Chat Agent",
+    "subtitle": "A Customer Service Bot with Memory",
+    "intro": "Building a conversational AI using modern LLMs and vector databases to provide contextual and persistent customer support across sessions.",
+    "content": "<div><p>This project explores the integration of large language models (LLMs) with a persistent memory store to create a more effective customer service chatbot. Unlike traditional stateless bots, this agent can recall previous interactions with a user, providing a more natural and helpful conversational flow. The backend is built with Python, using a vector database to store and retrieve conversation embeddings for long-term memory. The frontend is a simple React application that communicates with the agent via a WebSocket connection for real-time interaction. The project focuses on the challenges of managing conversation context and preventing topic drift.</p></div>",
+    "date": "2024-07-26",
+    "tags": ["ai", "llm", "chatbots", "python", "react", "vector-database"],
+    "thumbnail": "project-3-thumb"
+  },
+  {
+    "id": "smart-home-dashboard",
+    "title": "Smart Home Dashboard",
+    "subtitle": "A Central Hub for IoT Devices",
+    "intro": "A responsive web application to monitor and control various smart home devices from a single, unified interface.",
+    "content": "<div><p>This project was born out of a desire to unify the disparate apps and interfaces for various IoT devices in my home. The dashboard is built with SvelteKit and communicates with devices via a central MQTT broker. A Node.js service acts as a bridge, translating device-specific protocols (Zigbee, Wi-Fi) into standardized MQTT messages. The frontend features a dynamic, grid-based layout that is fully customizable by the user, allowing them to arrange controls for lights, sensors, and media players as they see fit. It's a fully self-hosted solution that prioritizes local control and privacy.</p></div>",
+    "date": "2024-07-27",
+    "tags": ["iot", "sveltekit", "nodejs", "mqtt", "home-automation"],
+    "thumbnail": "project-4-thumb"
+  },
+  {
+    "id": "interactive-code-notebook",
+    "title": "Interactive Code Notebook",
+    "subtitle": "A Web-Based Learning Environment",
+    "intro": "A browser-based tool that allows users to write and execute code snippets in various languages, combined with markdown for rich-text explanations.",
+    "content": "<div><p>Inspired by tools like Jupyter Notebooks, this project aims to create a lightweight, web-native environment for technical documentation and tutorials. It uses WebAssembly to run code interpreters for languages like Python and JavaScript directly in the browser, providing a sandboxed and secure execution environment. The application is built with Next.js and features a Monaco Editor integration for a rich code editing experience. Users can create 'notebooks' composed of markdown cells and code cells, and the output of code execution is rendered directly below the cell. Notebooks can be saved locally or shared via a unique URL.</p></div>",
+    "date": "2024-07-28",
+    "tags": ["webassembly", "react", "nextjs", "education", "monaco-editor"],
+    "thumbnail": "project-5-thumb"
   }
 ]

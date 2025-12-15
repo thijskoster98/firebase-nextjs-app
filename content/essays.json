@@ -19,5 +19,35 @@
     "date": "2024-04-22",
     "tags": ["development", "json", "architecture", "jamstack"],
     "thumbnail": "essay-2-thumb"
+  },
+  {
+    "id": "design-for-accessibility",
+    "title": "Designing for Everyone: An Introduction to Web Accessibility",
+    "subtitle": "Building an Inclusive Web",
+    "intro": "Accessibility is not a feature, but a fundamental part of responsible web development. This essay explores the 'why' and 'how' of creating accessible digital products.",
+    "content": "<div><p>Web accessibility (often abbreviated as a11y) is the practice of ensuring that websites and applications are usable by everyone, regardless of disability. This includes people with visual, auditory, motor, or cognitive impairments. Far from being a niche concern, designing for accessibility improves the experience for all users. This essay covers the core principles of WCAG (Web Content Accessibility Guidelines), such as providing text alternatives for non-text content, ensuring content is navigable via keyboard, and creating designs with sufficient color contrast. We will look at practical examples and simple changes that can make a profound impact on usability for millions of people.</p></div>",
+    "date": "2024-07-26",
+    "tags": ["accessibility", "a11y", "design", "development", "inclusion"],
+    "thumbnail": "essay-3-thumb"
+  },
+  {
+    "id": "the-rise-of-server-components",
+    "title": "The Rise of Server Components",
+    "subtitle": "A Paradigm Shift in React",
+    "intro": "React Server Components are changing how we build web applications. This essay breaks down what they are, the problems they solve, and their implications for the future.",
+    "content": "<div><p>For years, React applications have been primarily client-side, with heavy JavaScript bundles shipped to the user's browser. React Server Components (RSCs) introduce a new model. By allowing components to render exclusively on the server, RSCs can significantly reduce the amount of client-side JavaScript, leading to faster initial page loads and better performance. This essay explains the distinction between Server Components, Client Components, and Shared Components, and how they work together. We'll explore the benefits, such as direct database access from components and improved security, as well as the new challenges and mental models developers must adopt.</p></div>",
+    "date": "2024-07-27",
+    "tags": ["react", "nextjs", "server-components", "performance", "webdev"],
+    "thumbnail": "essay-4-thumb"
+  },
+  {
+    "id": "typography-in-ui",
+    "title": "More Than Words: The Role of Typography in UI Design",
+    "subtitle": "The Unsung Hero of User Experience",
+    "intro": "Good typography is invisible, but bad typography is everywhere. This essay highlights the critical role of typography in creating clear, usable, and beautiful user interfaces.",
+    "content": "<div><p>Typography is the art and technique of arranging type to make written language legible, readable, and appealing when displayed. In UI design, it's one of the most powerful tools a designer has. Effective typography establishes a visual hierarchy, sets the overall tone of a product, and directly impacts usability. This essay goes beyond simply choosing a font, and delves into the principles of hierarchy (headings, body text, captions), line length, line height, and typographic scale. We will examine how a well-structured typographic system can reduce cognitive load and guide the user's attention, ultimately creating a more seamless and enjoyable experience.</p></div>",
+    "date": "2024-07-28",
+    "tags": ["typography", "ui", "design", "ux"],
+    "thumbnail": "essay-5-thumb"
   }
 ]

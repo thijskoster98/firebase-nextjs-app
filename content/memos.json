@@ -19,5 +19,35 @@
     "date": "2024-06-01",
     "tags": ["learning", "creativity", "development"],
     "thumbnail": "memo-2-thumb"
+  },
+  {
+    "id": "document-your-work",
+    "title": "The Future You Will Thank You",
+    "subtitle": "A Note on Documentation",
+    "intro": "A short memo on the importance of documenting your work, even when it feels like a chore.",
+    "content": "<div><p>Writing documentation can feel like a thankless task at the moment, an extra step when you'd rather move on to the next problem. But good documentation is a gift to your future self and your colleagues. It's the difference between a project that can be understood and maintained, and one that becomes a black box of 'here be dragons'. Whether it's code comments, a README file, or a full wiki, taking the time to explain the 'why' behind your decisions is one of the highest-leverage activities you can do.</p></div>",
+    "date": "2024-07-26",
+    "tags": ["documentation", "development", "productivity"],
+    "thumbnail": "memo-3-thumb"
+  },
+  {
+    "id": "embrace-boredom",
+    "title": "Embrace Boredom",
+    "subtitle": "A Note on Creativity",
+    "intro": "In a world of constant stimulation, boredom has become a rare and valuable commodity.",
+    "content": "<div><p>Our brains are not designed for the firehose of information we subject them to daily. Creativity and deep thought don't happen when we're scrolling through feeds or jumping between tasks. They happen in the quiet moments, the 'in-between' times when our minds are free to wander. This memo is a small encouragement to intentionally create moments of boredom in your day. Go for a walk without a podcast. Stare out the window. Let your mind be fallow. It's in these moments that the best ideas often take root.</p></div>",
+    "date": "2024-07-27",
+    "tags": ["creativity", "mindfulness", "productivity"],
+    "thumbnail": "memo-4-thumb"
+  },
+  {
+    "id": "the-power-of-defaults",
+    "title": "The Power of Defaults",
+    "subtitle": "A Note on System Design",
+    "intro": "The default settings in any system—be it software, a team process, or a personal habit—are incredibly powerful.",
+    "content": "<div><p>Most people will stick with the default option most of the time. This is known as default bias. As designers and builders, we can leverage this for good. Does your system default to being secure? Does your process default to open communication? Does your UI default to an accessible font size? Making the 'right' choice the 'easy' choice is one of the most effective ways to influence behavior at scale. This memo is a reminder to think critically about the defaults we set, as they will shape the landscape more than any other single choice.</p></div>",
+    "date": "2024-07-28",
+    "tags": ["design", "systems-thinking", "psychology"],
+    "thumbnail": "memo-5-thumb"
   }
 ]

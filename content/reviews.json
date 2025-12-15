@@ -21,5 +21,38 @@
     "tags": ["audio", "headphones", "tech", "audiophile"],
     "thumbnail": "review-2-thumb",
     "rating": 4
+  },
+  {
+    "id": "dune-part-two-review",
+    "title": "Dune: Part Two",
+    "subtitle": "An Epic of Biblical Proportions",
+    "intro": "Denis Villeneuve delivers a breathtaking continuation of his sci-fi saga that is bigger, bolder, and even more visually stunning than the first.",
+    "content": "<div><p><em>Dune: Part Two</em> is a cinematic triumph. It picks up immediately where the first film left off and expands the scale and stakes to an epic level. The visuals are, once again, astounding. Greig Fraser's cinematography captures the desolate beauty and immense scale of Arrakis in a way that feels utterly transportive. The sound design is a character in itself, with Hans Zimmer's score being both thunderous and deeply emotional. The performances are universally strong, with Timothée Chalamet and Zendaya carrying the film's emotional weight, while Austin Butler delivers a chilling performance as the villainous Feyd-Rautha. It's a dense, complex film that respects its source material while delivering a powerful cinematic experience.</p></div>",
+    "date": "2024-07-26",
+    "tags": ["film", "sci-fi", "epic", "denis-villeneuve"],
+    "thumbnail": "review-3-thumb",
+    "rating": 5
+  },
+  {
+    "id": "logitech-mx-master-3s-review",
+    "title": "Logitech MX Master 3S Mouse",
+    "subtitle": "The King of Productivity Mice",
+    "intro": "A review of the latest iteration of Logitech's flagship productivity mouse, focusing on its new features and whether it's a worthy upgrade.",
+    "content": "<div><p>The MX Master series has long been the gold standard for non-gaming mice, and the 3S continues this legacy. The ergonomic shape remains largely unchanged, which is a good thing—it's one of the most comfortable mice on the market. The biggest changes are under the hood. The new 'Quiet Click' switches are a revelation, reducing click noise by a claimed 90%. It's a small change that makes a huge difference in a quiet office environment. The sensor has also been upgraded to 8K DPI, which is overkill for most users but provides smoother tracking on high-resolution displays. The MagSpeed scroll wheel remains the star feature, allowing for lightning-fast scrolling through long documents. It's an incremental upgrade, but one that refines an already near-perfect product.</p></div>",
+    "date": "2024-07-27",
+    "tags": ["tech", "productivity", "mouse", "logitech"],
+    "thumbnail": "review-4-thumb",
+    "rating": 4.5
+  },
+  {
+    "id": "three-body-problem-book-review",
+    "title": "The Three-Body Problem by Cixin Liu",
+    "subtitle": "A Mind-Bending Sci-Fi Masterpiece",
+    "intro": "A review of the first book in the 'Remembrance of Earth's Past' trilogy, a landmark work of science fiction.",
+    "content": "<div><p>Cixin Liu's <em>The Three-Body Problem</em> is one of the most imaginative and ambitious science fiction novels I have ever read. The book blends real-world Chinese history, theoretical physics, and a first-contact narrative into a completely unique and unpredictable story. The 'hard sci-fi' concepts are complex and mind-bending, but Liu presents them in a way that is both intellectually stimulating and integral to the plot. The central mystery of the story is deeply compelling, and the sense of scale is immense. It's a challenging read at times, but one that is incredibly rewarding. It redefines what is possible in the genre and will leave you thinking about its ideas long after you've finished it.</p></div>",
+    "date": "2024-07-28",
+    "tags": ["books", "sci-fi", "cixin-liu", "hard-sci-fi"],
+    "thumbnail": "review-5-thumb",
+    "rating": 5
   }
 ]

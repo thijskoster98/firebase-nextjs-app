@@ -47,6 +47,78 @@
       "description": "A person thinking",
       "imageUrl": "https://images.unsplash.com/photo-1544243747-b8ca15da2450?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwZXJzb24lMjB0aGlua2luZ3xlbnwwfHx8fDE3NjU3MDExMDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "person thinking"
+    },
+    {
+      "id": "project-3-thumb",
+      "description": "Glowing neural network",
+      "imageUrl": "https://images.unsplash.com/photo-1655890006065-edefcd764af6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxuZXVyYWwlMjBuZXR3b3JrfGVufDB8fHx8MTc2NTc0MjYxMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "neural network"
+    },
+    {
+      "id": "project-4-thumb",
+      "description": "Modern smart home interface",
+      "imageUrl": "https://images.unsplash.com/photo-1519558260268-cde7e03a0152?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzbWFydCUyMGhvbWV8ZW58MHx8fHwxNzY1NzUxMjc1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smart home"
+    },
+    {
+      "id": "project-5-thumb",
+      "description": "Lines of code on a screen",
+      "imageUrl": "https://images.unsplash.com/photo-1658274474930-bb27a64022c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb2RlJTIwc2NyZWVufGVufDB8fHx8MTc2NTcyNjc5Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "code screen"
+    },
+    {
+      "id": "essay-3-thumb",
+      "description": "Abstract shapes representing accessibility",
+      "imageUrl": "https://images.unsplash.com/photo-1611926653458-09294b3142bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhY2Nlc3NpYmlsaXR5JTIwYWJzdHJhY3R8ZW58MHx8fHwxNzY1NzkwNzI0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "accessibility abstract"
+    },
+    {
+      "id": "essay-4-thumb",
+      "description": "Server racks in a data center",
+      "imageUrl": "https://images.unsplash.com/photo-1702478475268-aa8ef54c084e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzZXJ2ZXIlMjByYWNrc3xlbnwwfHx8fDE3NjU3OTA3MjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "server racks"
+    },
+    {
+      "id": "essay-5-thumb",
+      "description": "Close-up of elegant letterpress type",
+      "imageUrl": "https://images.unsplash.com/photo-1595142545813-06fee27f3dcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsZXR0ZXJwcmVzcyUyMHR5cGV8ZW58MHx8fHwxNzY1NzkwNzI0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "letterpress type"
+    },
+    {
+      "id": "review-3-thumb",
+      "description": "Vast desert landscape with giant sandworm",
+      "imageUrl": "https://images.unsplash.com/photo-1509316785289-025f5b846b35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkZXNlcnQlMjBsYW5kc2NhcGV8ZW58MHx8fHwxNzY1NjY5OTc3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "desert landscape"
+    },
+    {
+      "id": "review-4-thumb",
+      "description": "Sleek ergonomic mouse on a desk pad",
+      "imageUrl": "https://images.unsplash.com/photo-1633455678688-cd6c57ab395d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxlcmdvbm9taWMlMjBtb3VzZXxlbnwwfHx8fDE3NjU3OTA3MjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ergonomic mouse"
+    },
+    {
+      "id": "review-5-thumb",
+      "description": "Stylized solar system with three suns",
+      "imageUrl": "https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzb2xhciUyMHN5c3RlbXxlbnwwfHx8fDE3NjU3OTA3MjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "solar system"
+    },
+    {
+      "id": "memo-3-thumb",
+      "description": "A well-organized notebook",
+      "imageUrl": "https://images.unsplash.com/photo-1759884247407-782965434bf7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxvcmdhbml6ZWQlMjBub3RlYm9va3xlbnwwfHx8fDE3NjU3OTA3MjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "organized notebook"
+    },
+    {
+      "id": "memo-4-thumb",
+      "description": "Person looking out a window thoughtfully",
+      "imageUrl": "https://images.unsplash.com/photo-1635357812542-1105b4d38c59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0aG91Z2h0ZnVsJTIwd2luZG93fGVufDB8fHx8MTc2NTc5MDcyNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "thoughtful window"
+    },
+    {
+      "id": "memo-5-thumb",
+      "description": "A series of switches with one highlighted",
+      "imageUrl": "https://images.unsplash.com/photo-1604380880002-8aa86df679b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzd2l0Y2hlcyUyMGhpZ2hsaWdodHxlbnwwfHx8fDE3NjU3OTA3MjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "switches highlight"
     }
   ]
 }
