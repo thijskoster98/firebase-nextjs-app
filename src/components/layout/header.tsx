@@ -23,7 +23,10 @@ export default function Header({ lang, dict }: { lang: string, dict: any }) {
     { href: '/cv-contact', label: dict.header.cv_contact },
   ];
 
-  const getLocalizedPath = (path: string) => `/${lang}${path}`;
+  const getLocalizedPath = (path: string) => {
+    if (path === '/') return `/${lang}`;
+    return `/${lang}${path}`;
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
