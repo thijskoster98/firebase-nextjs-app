@@ -19,7 +19,7 @@ export default function LanguageSwitcher() {
 
   return (
     <div className="flex items-center gap-2">
-        <GBFlag className={cn("w-6 transition-opacity", !isEnglish && "opacity-50 hover:opacity-100 cursor-pointer")} onClick={!isEnglish ? handleLanguageChange : undefined} />
+        <GBFlag className={cn("w-6 rounded-sm transition-opacity", !isEnglish && "opacity-50 hover:opacity-100 cursor-pointer")} onClick={!isEnglish ? handleLanguageChange : undefined} />
         <div 
             onClick={handleLanguageChange}
             className={cn(
@@ -29,7 +29,7 @@ export default function LanguageSwitcher() {
         >
             <div className="w-4 h-4 bg-background rounded-full shadow-md transform transition-transform" />
         </div>
-        <NLFlag className={cn("w-6 transition-opacity", isEnglish && "opacity-50 hover:opacity-100 cursor-pointer")} onClick={isEnglish ? handleLanguageChange : undefined} />
+        <NLFlag className={cn("w-6 rounded-sm transition-opacity", isEnglish && "opacity-50 hover:opacity-100 cursor-pointer")} onClick={isEnglish ? handleLanguageChange : undefined} />
     </div>
   );
 }

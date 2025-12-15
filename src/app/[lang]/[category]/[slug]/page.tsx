@@ -109,7 +109,7 @@ export default async function PostPage({ params }: { params: { lang: string; cat
                     const flagUrl = `/${langCode}/${params.category}/${params.slug}`;
                     return (
                         <Link key={langCode} href={flagUrl} passHref>
-                           <Flag className={cn("w-8 rounded-sm cursor-pointer border border-border/20 transition-opacity hover:opacity-80", params.lang === langCode && "ring-2 ring-primary ring-offset-2 ring-offset-background")} />
+                           <Flag className={cn("w-8 rounded-sm cursor-pointer border border-border/20 transition-opacity hover:opacity-80")} />
                         </Link>
                     )
                 })}

@@ -76,7 +76,7 @@ export default function ItemCard({ item, category, image, showTags = false, lang
                     const flagUrl = `/${langCode}/${category}/${item.id}`;
                     return (
                         <Link key={langCode} href={flagUrl} passHref>
-                           <Flag className={cn("w-6 rounded-sm cursor-pointer transition-opacity hover:opacity-80", lang === langCode && "ring-2 ring-primary ring-offset-2 ring-offset-background")} />
+                           <Flag className={cn("w-6 rounded-sm cursor-pointer transition-opacity hover:opacity-80")} />
                         </Link>
                     )
                 })}
