@@ -104,7 +104,7 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
       )}
 
       <section className="bg-muted">
-        <div className="container px-4 py-12 md:py-20 grid md:grid-cols-3 gap-8 md:gap-12 items-center">
+        <div className="container px-4 py-8 md:py-12 grid md:grid-cols-3 gap-8 md:gap-12 items-center">
           <div className="md:col-span-2">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
               {CATEGORY_DISPLAY_NAMES[category]}
