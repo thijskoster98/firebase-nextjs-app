@@ -57,7 +57,9 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                 {dict.homepage.intro_p2}
               </p>
             </div>
-             <Signature className="h-12 w-auto mt-6 text-foreground ml-auto block mr-4" />
+            <div className="flex justify-end mt-6 mr-4">
+             <Signature className="h-12 w-auto text-foreground" />
+            </div>
           </div>
           <div className="md:col-span-1 flex flex-col items-center order-1 md:order-2 -mt-32 md:-mt-80">
             {authorImage && (

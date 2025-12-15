@@ -45,11 +45,13 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
     return items
       .filter((item) => {
         // Language filtering
+        const originalItem = items.find(i => i.id === item.id);
+        const availableLanguages = ['en', ...(Object.keys(originalItem?.translations || {}))];
         if (languageFilter === 'en') {
-          return !item.translations?.nl;
+          return availableLanguages.includes('en');
         }
         if (languageFilter === 'nl') {
-          return !!item.translations?.nl;
+          return availableLanguages.includes('nl');
         }
         return true; // 'all'
       })
@@ -130,7 +132,9 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
                 {dict.category_page.intro.replace('{category}', categoryName.toLowerCase())}
               </p>
             </div>
-             <Signature className="h-12 w-auto mt-6 text-foreground ml-auto block mr-4" />
+            <div className="flex justify-end mt-6 mr-4">
+             <Signature className="h-12 w-auto text-foreground" />
+            </div>
           </div>
           <div className="md:col-span-1 flex flex-col items-center order-1 md:order-2 -mt-24 md:-mt-48">
             {authorImage && (
