@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    --background: 210 20% 98%; /* Very light petrol blue */
-    --foreground: 215 25% 15%; /* Dark petrol blue */
-    --card: 210 20% 100%;
-    --card-foreground: 215 25% 15%;
-    --popover: 210 20% 100%;
-    --popover-foreground: 215 25% 15%;
-    --primary: 35 70% 50%; /* More subtle Bronze/Gold */
-    --primary-foreground: 35 90% 98%;
-    --secondary: 210 20% 92%; /* Darker for more tag contrast */
+    --background: 210 30% 96%; /* Slightly darker light petrol blue */
+    --foreground: 215 25% 20%; /* Dark petrol blue */
+    --card: 210 30% 100%;
+    --card-foreground: 215 25% 20%;
+    --popover: 210 30% 100%;
+    --popover-foreground: 215 25% 20%;
+    --primary: 210 45% 45%; /* A more saturated petrol blue for primary actions */
+    --primary-foreground: 210 45% 98%;
+    --secondary: 210 25% 88%; /* Adjusted for new background */
     --secondary-foreground: 215 25% 15%;
-    --muted: 210 20% 90%;
+    --muted: 210 25% 92%;
     --muted-foreground: 215 15% 45%;
-    --accent: 210 20% 85%;
+    --accent: 210 25% 90%;
     --accent-foreground: 215 25% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 210 15% 88%;
-    --input: 210 15% 92%;
-    --ring: 35 70% 50%;
-    --chart-1: 35 70% 50%;
+    --border: 210 20% 85%;
+    --input: 210 20% 90%;
+    --ring: 210 45% 45%;
+    --chart-1: 210 45% 45%;
     --chart-2: 190 60% 40%;
     --chart-3: 210 40% 30%;
     --chart-4: 25 80% 60%;
@@ -37,9 +37,9 @@
     --card-foreground: 210 20% 96%;
     --popover: 215 28% 10%;
     --popover-foreground: 210 20% 96%;
-    --primary: 35 70% 55%; /* More subtle, Lighter Bronze/Gold */
-    --primary-foreground: 35 90% 10%;
-    --secondary: 215 28% 22%; /* Lighter for more tag contrast */
+    --primary: 205 60% 65%; /* A lighter, but still petrol-based blue */
+    --primary-foreground: 205 90% 10%;
+    --secondary: 215 28% 22%;
     --secondary-foreground: 210 20% 98%;
     --muted: 215 28% 22%;
     --muted-foreground: 210 15% 65%;
@@ -49,8 +49,8 @@
     --destructive-foreground: 0 0% 98%;
     --border: 215 28% 20%;
     --input: 215 28% 20%;
-    --ring: 35 70% 55%;
-    --chart-1: 35 70% 55%;
+    --ring: 205 60% 65%;
+    --chart-1: 205 60% 65%;
     --chart-2: 190 60% 45%;
     --chart-3: 210 40% 35%;
     --chart-4: 25 80% 65%;
