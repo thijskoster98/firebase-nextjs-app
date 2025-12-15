@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
+import ClientLayout from './client-layout';
 import { getDictionary } from '@/lib/dictionaries';
 
 export const metadata: Metadata = {
@@ -17,10 +16,8 @@ export default async function LangLayout({
 }>) {
   const dict = await getDictionary(lang);
   return (
-    <>
-      <Header lang={lang} dict={dict} />
-      <main className="flex-grow">{children}</main>
-      <Footer lang={lang} dict={dict} />
-    </>
+    <ClientLayout lang={lang} dict={dict}>
+      {children}
+    </ClientLayout>
   );
 }
