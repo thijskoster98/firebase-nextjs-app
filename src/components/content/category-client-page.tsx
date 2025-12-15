@@ -90,7 +90,7 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
   return (
     <>
       {bannerImage && (
-        <section className="relative w-full h-48 md:h-56 shadow-inner">
+        <section className="relative w-full h-32 md:h-40 shadow-inner">
           <Image
             src={bannerImage.imageUrl}
             alt={bannerImage.description}
