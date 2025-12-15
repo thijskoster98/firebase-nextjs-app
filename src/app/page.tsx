@@ -59,7 +59,7 @@ export default async function Home() {
               <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
                  {items.map(item => {
                     const image = PlaceHolderImages.find(img => img.id === item.thumbnail);
-                    return <ItemCard key={item.id} item={item} category={category} image={image} showTags={false} />;
+                    return <ItemCard key={item.id} item={item} category={category} image={image} showTags={true} />;
                  })}
               </div>
             </section>
