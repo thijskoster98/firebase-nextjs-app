@@ -97,14 +97,14 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
           </div>
         </div>
 
-      <div className="grid gap-8">
+      <div className="grid md:grid-cols-2 gap-8">
         {filteredItems.length > 0 ? (
           filteredItems.map((item) => {
             const image = PlaceHolderImages.find(img => img.id === item.thumbnail);
             return <ItemCard key={item.id} item={item} category={category} image={image} />;
           })
         ) : (
-          <div className="text-center py-16 border-2 border-dashed rounded-lg">
+          <div className="text-center py-16 border-2 border-dashed rounded-lg md:col-span-2">
             <h3 className="text-xl font-semibold">No results found</h3>
             <p className="text-muted-foreground mt-2">
               Try adjusting your search or filters.
