@@ -1,6 +1,6 @@
 import { getLatestContent } from '@/lib/content';
 import type { Category } from '@/lib/types';
-import HomepageItemCard from '@/components/content/homepage-item-card';
+import ItemCard from '@/components/content/item-card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -56,10 +56,10 @@ export default async function Home() {
                     </Link>
                 </Button>
               </div>
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
                  {items.map(item => {
                     const image = PlaceHolderImages.find(img => img.id === item.thumbnail);
-                    return <HomepageItemCard key={item.id} item={item} category={category} image={image} />;
+                    return <ItemCard key={item.id} item={item} category={category} image={image} showTags={false} />;
                  })}
               </div>
             </section>

@@ -9,9 +9,6 @@ import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Search, X } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
-import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
-
 
 interface CategoryClientPageProps {
   items: PortfolioItem[];
@@ -127,26 +124,11 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
           </div>
         </div>
 
-      <div className="grid md:grid-cols-2 gap-x-8 gap-y-16">
+      <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
         {filteredItems.length > 0 ? (
           filteredItems.map((item) => {
             const image = PlaceHolderImages.find(img => img.id === item.thumbnail);
-            return (
-              <div key={item.id}>
-                <ItemCard item={item} category={category} image={image} />
-                {item.tags && item.tags.length > 0 && (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {item.tags.map((tag) => (
-                      <Link key={tag} href={`/${category}?tags=${tag}`} passHref>
-                        <Badge variant="secondary" className="text-xs hover:bg-accent hover:text-accent-foreground cursor-pointer">
-                          {tag}
-                        </Badge>
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )
+            return <ItemCard key={item.id} item={item} category={category} image={image} showTags={true} />;
           })
         ) : (
           <div className="text-center py-16 border-2 border-dashed rounded-lg md:col-span-2">
