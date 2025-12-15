@@ -74,13 +74,13 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
               </div>
             )}
              <div className="flex flex-col space-y-2 w-full max-w-[16rem] mx-auto">
-                <Button asChild variant="outline">
+                <Button asChild variant="outline" className="w-48">
                     <Link href={`/${lang}/about`}>
                         {dict.homepage.more_about_me}
                         <ArrowRight className="ml-2" />
                     </Link>
                 </Button>
-                <Button asChild variant="outline">
+                <Button asChild variant="outline" className="w-48">
                     <Link href={`/${lang}/cv-contact`}>
                         {dict.homepage.cv_contact}
                         <ArrowRight className="ml-2" />
