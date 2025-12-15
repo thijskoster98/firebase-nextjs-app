@@ -1,16 +1,24 @@
 import { cn } from '@/lib/utils';
 
 export const GBFlag = ({ className }: { className?: string }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 60 36"
-    className={cn("h-auto", className)}
-  >
-    <rect width="60" height="36" fill="#fff" />
-    <path fill="#C8102E" d="M24 0h12v36H24z" />
-    <path fill="#C8102E" d="M0 15h60v6H0z" />
-  </svg>
+    <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 60 30" 
+        className={cn("h-auto", className)}
+    >
+        <clipPath id="a">
+            <path d="M0 0v30h60V0z"/>
+        </clipPath>
+        <rect width="60" height="30" fill="#00247d"/>
+        <g clipPath="url(#a)">
+            <path d="M0 0l60 30m0-30L0 30" stroke="#fff" strokeWidth="6"/>
+            <path d="M0 0l60 30m0-30L0 30" stroke="#cf142b" strokeWidth="4"/>
+            <path d="M30 0v30M0 15h60" stroke="#fff" strokeWidth="10"/>
+            <path d="M30 0v30M0 15h60" stroke="#cf142b" strokeWidth="6"/>
+        </g>
+    </svg>
 );
+
 
 export const NLFlag = ({ className }: { className?: string }) => (
   <svg

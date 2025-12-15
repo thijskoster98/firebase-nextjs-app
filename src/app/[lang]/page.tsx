@@ -73,7 +73,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                 />
               </div>
             )}
-             <div className="flex flex-col space-y-2 w-full max-w-[16rem] mx-auto">
+             <div className="flex flex-col items-center space-y-2 w-full max-w-[16rem] mx-auto">
                 <Button asChild variant="outline" className="w-48">
                     <Link href={`/${lang}/about`}>
                         {dict.homepage.more_about_me}
