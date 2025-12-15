@@ -109,12 +109,9 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
               {CATEGORY_DISPLAY_NAMES[category]}
             </h1>
-            <div className="prose prose-lg dark:prose-invert max-w-none columns-1 md:columns-2 gap-x-8">
+            <div className="prose prose-lg dark:prose-invert max-w-none">
               <p>
-                Welcome to the {category} section. Here you can browse all entries, search by keyword, or filter by specific tags to find exactly what you're looking for.
-              </p>
-              <p>
-                This collection is part of a larger personal project exploring different technologies and sharing thoughts on design, development, and everything in between. It's built on a foundation of simplicity, using Next.js and Tailwind CSS, with all content managed through simple JSON files.
+                Welcome to the {category} section. Here you can browse all entries, search by keyword, or filter by specific tags to find exactly what you're looking for. This collection is part of a larger personal project exploring different technologies and sharing thoughts on design, development, and everything in between.
               </p>
             </div>
              <p className="font-headline text-2xl mt-6 text-right mr-4">- John Doe</p>
@@ -131,12 +128,19 @@ export default function CategoryClientPage({ items, category, allTags }: Categor
                 />
               </div>
             )}
-             <Button asChild variant="outline">
-                <Link href="/about">
-                    More About Me
-                    <ArrowRight className="ml-2" />
-                </Link>
-            </Button>
+             <div className="flex flex-col space-y-2 w-full max-w-[16rem] mx-auto">
+                <Button asChild variant="outline">
+                    <Link href="/about">
+                        More About Me
+                        <ArrowRight className="ml-2" />
+                    </Link>
+                </Button>
+                <Button asChild variant="secondary">
+                    <Link href="/cv-contact">
+                        CV & Contact
+                    </Link>
+                </Button>
+            </div>
           </div>
         </div>
       </section>
