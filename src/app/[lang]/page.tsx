@@ -58,7 +58,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
             </div>
              <p className="font-headline text-2xl mt-6 text-right mr-4">{dict.homepage.signature}</p>
           </div>
-          <div className="md:col-span-1 flex flex-col items-center order-1 md:order-2 -mt-64 md:-mt-80">
+          <div className="md:col-span-1 flex flex-col items-center order-1 md:order-2 -mt-32 md:-mt-80">
             {authorImage && (
               <div className="relative aspect-square w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-lg mb-4 ring-4 ring-background">
                 <Image

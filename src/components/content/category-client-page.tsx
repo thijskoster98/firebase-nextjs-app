@@ -45,10 +45,12 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
       .filter((item) => {
         // Language filtering
         if (languageFilter === 'en') {
-          return true; // All items are available in 'en'
+          const originalItem = items.find(i => i.id === item.id);
+          return !(originalItem?.translations && originalItem.translations.nl) || lang === 'en';
         }
         if (languageFilter === 'nl') {
-          return !!(item.translations && item.translations.nl);
+          const originalItem = items.find(i => i.id === item.id);
+          return !!(originalItem?.translations && originalItem.translations.nl);
         }
         return true; // 'all'
       })
@@ -78,7 +80,7 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
           .toLowerCase();
         return contentToSearch.includes(query);
       });
-  }, [items, searchQuery, selectedTags, languageFilter]);
+  }, [items, searchQuery, selectedTags, languageFilter, lang]);
 
   const toggleTag = (tag: string) => {
     const newTags = selectedTags.includes(tag)
@@ -94,14 +96,12 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
     
     // Using router.push to update URL without full reload
     router.push(`/${lang}/${category}?${newParams.toString()}`);
-    setSelectedTags(newTags);
   };
 
   const clearFilters = () => {
     const newParams = new URLSearchParams(window.location.search);
     newParams.delete('tags');
     router.push(`/${lang}/${category}?${newParams.toString()}`);
-    setSelectedTags([]);
   }
 
   return (
@@ -133,7 +133,7 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
             </div>
              <p className="font-headline text-2xl mt-6 text-right mr-4">{dict.homepage.signature}</p>
           </div>
-          <div className="md:col-span-1 flex flex-col items-center order-1 md:order-2 -mt-48">
+          <div className="md:col-span-1 flex flex-col items-center order-1 md:order-2 -mt-24 md:-mt-48">
             {authorImage && (
               <div className="relative aspect-square w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-lg mb-4 ring-4 ring-background">
                 <Image
