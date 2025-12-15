@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Search, X, ArrowRight } from 'lucide-react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { Separator } from '../ui/separator';
 
 interface CategoryClientPageProps {
   items: PortfolioItem[];
@@ -20,6 +21,8 @@ interface CategoryClientPageProps {
   categoryName: string;
 }
 
+type LanguageFilter = 'all' | 'en' | 'nl';
+
 export default function CategoryClientPage({ items, category, allTags, lang, dict, categoryName }: CategoryClientPageProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -27,6 +30,7 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
   
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>(initialTags ? initialTags.split(',') : []);
+  const [languageFilter, setLanguageFilter] = useState<LanguageFilter>('all');
 
   const bannerImage = PlaceHolderImages.find((img) => img.id === 'category-banner');
   const authorImage = PlaceHolderImages.find((img) => img.id === 'author-portrait');
@@ -38,6 +42,16 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
 
   const filteredItems = useMemo(() => {
     return items
+      .filter((item) => {
+        // Language filtering
+        if (languageFilter === 'en') {
+          return true; // All items are available in 'en'
+        }
+        if (languageFilter === 'nl') {
+          return !!(item.translations && item.translations.nl);
+        }
+        return true; // 'all'
+      })
       .filter((item) => {
         // Tag filtering
         if (selectedTags.length > 0) {
@@ -64,7 +78,7 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
           .toLowerCase();
         return contentToSearch.includes(query);
       });
-  }, [items, searchQuery, selectedTags]);
+  }, [items, searchQuery, selectedTags, languageFilter]);
 
   const toggleTag = (tag: string) => {
     const newTags = selectedTags.includes(tag)
@@ -161,44 +175,74 @@ export default function CategoryClientPage({ items, category, allTags, lang, dic
             />
           </div>
         </div>
-
-        <div className="mb-8">
-            <h3 className="text-sm font-semibold mb-2 text-muted-foreground">{dict.category_page.filter_by_tag}</h3>
-            <div className="flex flex-wrap gap-2">
-              {allTags.map((tag) => (
-                <Button
-                  key={tag}
-                  variant={selectedTags.includes(tag) ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => toggleTag(tag)}
-                  className="rounded-full"
-                >
-                  {tag}
-                  {selectedTags.includes(tag) && <X className="ml-2 h-4 w-4" />}
+        
+        <div className="grid md:grid-cols-4 gap-8">
+          <aside className="md:col-span-1 md:sticky top-32 self-start">
+            <h3 className="text-lg font-semibold mb-4 text-foreground">{dict.category_page.filters}</h3>
+            
+            <Separator />
+            
+            <div className="py-6">
+              <h4 className="text-sm font-semibold mb-3 text-muted-foreground">{dict.category_page.filter_by_language}</h4>
+              <div className="flex flex-col space-y-2">
+                <Button variant={languageFilter === 'all' ? 'default' : 'outline'} size="sm" onClick={() => setLanguageFilter('all')} className="justify-start">
+                  {dict.category_page.all_languages}
                 </Button>
-              ))}
-              {selectedTags.length > 0 && (
-                  <Button variant="ghost" size="sm" onClick={clearFilters}>
-                      {dict.category_page.clear_filters}
+                <Button variant={languageFilter === 'en' ? 'default' : 'outline'} size="sm" onClick={() => setLanguageFilter('en')} className="justify-start">
+                  {dict.category_page.english_only}
+                </Button>
+                <Button variant={languageFilter === 'nl' ? 'default' : 'outline'} size="sm" onClick={() => setLanguageFilter('nl')} className="justify-start">
+                  {dict.category_page.dutch_only}
+                </Button>
+              </div>
+            </div>
+
+            <Separator />
+
+            <div className="py-6">
+              <h4 className="text-sm font-semibold mb-3 text-muted-foreground">{dict.category_page.filter_by_tag}</h4>
+              <div className="flex flex-wrap gap-2">
+                {allTags.map((tag) => (
+                  <Button
+                    key={tag}
+                    variant={selectedTags.includes(tag) ? 'default' : 'outline'}
+                    size="sm"
+                    onClick={() => toggleTag(tag)}
+                    className="rounded-full"
+                  >
+                    {tag}
+                    {selectedTags.includes(tag) && <X className="ml-2 h-4 w-4" />}
                   </Button>
+                ))}
+                {selectedTags.length > 0 && (
+                    <Button variant="ghost" size="sm" onClick={clearFilters} className="w-full justify-center mt-2">
+                        {dict.category_page.clear_filters}
+                    </Button>
+                )}
+              </div>
+            </div>
+
+            <Separator />
+
+          </aside>
+
+          <main className="md:col-span-3">
+            <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
+              {filteredItems.length > 0 ? (
+                filteredItems.map((item) => {
+                  const image = PlaceHolderImages.find(img => img.id === item.thumbnail);
+                  return <ItemCard key={item.id} item={item} category={category} image={image} showTags={true} lang={lang} dict={dict} />;
+                })
+              ) : (
+                <div className="text-center py-16 border-2 border-dashed rounded-lg md:col-span-2">
+                  <h3 className="text-xl font-semibold">{dict.category_page.no_results_title}</h3>
+                  <p className="text-muted-foreground mt-2">
+                    {dict.category_page.no_results_description}
+                  </p>
+                </div>
               )}
             </div>
-          </div>
-
-        <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
-          {filteredItems.length > 0 ? (
-            filteredItems.map((item) => {
-              const image = PlaceHolderImages.find(img => img.id === item.thumbnail);
-              return <ItemCard key={item.id} item={item} category={category} image={image} showTags={true} lang={lang} dict={dict} />;
-            })
-          ) : (
-            <div className="text-center py-16 border-2 border-dashed rounded-lg md:col-span-2">
-              <h3 className="text-xl font-semibold">{dict.category_page.no_results_title}</h3>
-              <p className="text-muted-foreground mt-2">
-                {dict.category_page.no_results_description}
-              </p>
-            </div>
-          )}
+          </main>
         </div>
       </div>
     </>

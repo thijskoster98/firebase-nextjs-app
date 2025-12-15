@@ -25,6 +25,11 @@
     "category_page": {
         "intro": "Welkom bij de {category} sectie. Hier kun je door alle items bladeren, zoeken op trefwoord, of filteren op specifieke tags om precies te vinden wat je zoekt. Deze verzameling is onderdeel van een groter persoonlijk project waarin ik verschillende technologieën verken en gedachten deel over design, ontwikkeling en alles daartussenin.",
         "search_placeholder": "Zoek in {category}...",
+        "filters": "Filters",
+        "filter_by_language": "Filter op Taal",
+        "all_languages": "Alle Talen",
+        "english_only": "Alleen Engels",
+        "dutch_only": "Alleen Nederlands",
         "filter_by_tag": "Filter op tag:",
         "clear_filters": "Filters wissen",
         "no_results_title": "Geen resultaten gevonden",
@@ -72,5 +77,3 @@
         "nl": "Nederlands"
     }
 }
-
-  

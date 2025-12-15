@@ -25,6 +25,11 @@
     "category_page": {
         "intro": "Welcome to the {category} section. Here you can browse all entries, search by keyword, or filter by specific tags to find exactly what you're looking for. This collection is part of a larger personal project exploring different technologies and sharing thoughts on design, development, and everything in between.",
         "search_placeholder": "Search in {category}...",
+        "filters": "Filters",
+        "filter_by_language": "Filter by Language",
+        "all_languages": "All Languages",
+        "english_only": "English Only",
+        "dutch_only": "Dutch Only",
         "filter_by_tag": "Filter by tag:",
         "clear_filters": "Clear filters",
         "no_results_title": "No results found",
@@ -72,5 +77,3 @@
         "nl": "Dutch"
     }
 }
-
-  
