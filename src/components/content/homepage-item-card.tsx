@@ -14,7 +14,6 @@ export default function HomepageItemCard({ item, category, image }: HomepageItem
       item={item} 
       category={category} 
       image={image} 
-      showTags={false} 
     />
   );
 }

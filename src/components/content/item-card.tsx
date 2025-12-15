@@ -1,21 +1,19 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import type { PortfolioItem, Category } from '@/lib/types';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { Calendar, ArrowRight } from 'lucide-react';
 import StarRating from '../ui/star-rating';
-import { Badge } from '../ui/badge';
 
 interface ItemCardProps {
   item: PortfolioItem;
   category: Category;
   image?: ImagePlaceholder;
-  showTags?: boolean;
 }
 
-export default function ItemCard({ item, category, image, showTags = false }: ItemCardProps) {
+export default function ItemCard({ item, category, image }: ItemCardProps) {
   const itemUrl = `/${category}/${item.id}`;
 
   return (
@@ -68,17 +66,6 @@ export default function ItemCard({ item, category, image, showTags = false }: It
                 </div>
             </div>
         </div>
-        {showTags && item.tags && item.tags.length > 0 && (
-            <CardFooter className="p-6 pt-4 flex flex-wrap gap-2 border-t mt-auto">
-                {item.tags.map((tag) => (
-                    <Link key={tag} href={`/${category}?tags=${tag}`} passHref>
-                        <Badge variant="secondary" className="text-xs hover:bg-accent hover:text-accent-foreground cursor-pointer">
-                            {tag}
-                        </Badge>
-                    </Link>
-                ))}
-            </CardFooter>
-        )}
     </Card>
   );
 }
