@@ -100,4 +100,4 @@ export default function Header({ lang, dict }: { lang: string, dict: any }) {
       </div>
     </header>
   );
-} // <-- This closing brace was missing
+}
