@@ -55,7 +55,7 @@ export default async function Home() {
             </div>
              <p className="font-headline text-2xl mt-6 text-right mr-4">- John Doe</p>
           </div>
-          <div className="md:col-span-1 flex flex-col items-center -mt-32">
+          <div className="md:col-span-1 flex flex-col items-center -mt-40">
             {authorImage && (
               <div className="relative aspect-square w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-lg mb-4 ring-4 ring-background">
                 <Image
