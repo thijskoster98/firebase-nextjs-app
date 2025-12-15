@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "project-1-thumb",
+      "description": "Abstract geometric shapes",
+      "imageUrl": "https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMGdlb21ldHJ5fGVufDB8fHx8MTc2NTc4OTc3NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract geometry"
+    },
+    {
+      "id": "project-2-thumb",
+      "description": "Futuristic city skyline",
+      "imageUrl": "https://images.unsplash.com/photo-1519608487953-e999c86e7455?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwY2l0eXxlbnwwfHx8fDE3NjU3MTgxNDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "futuristic city"
+    },
+    {
+      "id": "essay-1-thumb",
+      "description": "Vintage typewriter",
+      "imageUrl": "https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx2aW50YWdlJTIwdHlwZXdyaXRlcnxlbnwwfHx8fDE3NjU3NDYwMzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vintage typewriter"
+    },
+    {
+      "id": "essay-2-thumb",
+      "description": "Person reading a book",
+      "imageUrl": "https://images.unsplash.com/photo-1620730388191-72c7f5cd43c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwZXJzb24lMjByZWFkaW5nfGVufDB8fHx8MTc2NTc4MDAxOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person reading"
+    },
+    {
+      "id": "review-1-thumb",
+      "description": "A classic film reel",
+      "imageUrl": "https://images.unsplash.com/photo-1560109947-543149eceb16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaWxtJTIwcmVlbHxlbnwwfHx8fDE3NjU3ODk3NzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "film reel"
+    },
+    {
+      "id": "review-2-thumb",
+      "description": "Headphones on a desk",
+      "imageUrl": "https://images.unsplash.com/photo-1639452126848-874852607b6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxoZWFkcGhvbmVzJTIwZGVza3xlbnwwfHx8fDE3NjU3ODk3NzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "headphones desk"
+    },
+    {
+      "id": "memo-1-thumb",
+      "description": "Sticky notes on a board",
+      "imageUrl": "https://images.unsplash.com/photo-1620325867502-221cfb5faa5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdGlja3klMjBub3Rlc3xlbnwwfHx8fDE3NjU3ODk3NzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sticky notes"
+    },
+    {
+      "id": "memo-2-thumb",
+      "description": "A person thinking",
+      "imageUrl": "https://images.unsplash.com/photo-1544243747-b8ca15da2450?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwZXJzb24lMjB0aGlua2luZ3xlbnwwfHx8fDE3NjU3MDExMDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person thinking"
+    }
+  ]
 }

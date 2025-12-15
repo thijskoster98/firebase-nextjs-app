@@ -1,0 +1,23 @@
+
+[
+  {
+    "id": "on-asynchronous-communication",
+    "title": "On Asynchronous Communication",
+    "subtitle": "A Note on Productivity",
+    "intro": "A brief reflection on the importance of asynchronous communication in creative and technical work environments.",
+    "content": "<div><p>The constant pressure for immediate response is a significant drain on deep, focused work. Adopting an 'async-first' mindset is crucial. It's not about ignoring people; it's about respecting everyone's time and focus. By defaulting to email, documents, and project management tools over instant messages and meetings, we create space for thoughtful replies and uninterrupted progress. This memo serves as a reminder to prioritize deep work and build systems that support it.</p></div>",
+    "date": "2024-07-10",
+    "tags": ["productivity", "work", "communication"],
+    "thumbnail": "memo-1-thumb"
+  },
+  {
+    "id": "the-value-of-side-projects",
+    "title": "The Unseen Value of Side Projects",
+    "subtitle": "Beyond the Portfolio Piece",
+    "intro": "Side projects are more than just resume boosters; they are playgrounds for innovation and learning.",
+    "content": "<div><p>While the primary goal of a side project might seem to be creating a polished piece for a portfolio, its true value often lies in the process. It's a low-stakes environment to experiment with new technologies, tackle unfamiliar problems, and make mistakes without professional consequences. These explorations are where true learning and innovation happen, often feeding back into one's primary work in unexpected and valuable ways. This memo is an encouragement to start that 'silly' idea—it might be more valuable than you think.</p></div>",
+    "date": "2024-06-01",
+    "tags": ["learning", "creativity", "development"],
+    "thumbnail": "memo-2-thumb"
+  }
+]

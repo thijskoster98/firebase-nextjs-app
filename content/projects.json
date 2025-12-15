@@ -1,0 +1,23 @@
+
+[
+  {
+    "id": "portfolio-json",
+    "title": "JSON-Powered Portfolio",
+    "subtitle": "This Very Website",
+    "intro": "A minimal, fast personal portfolio website where all content is sourced from local JSON files, emphasizing a content-as-data architecture.",
+    "content": "<div><p>This project is a practical implementation of a 'No CMS' philosophy. By storing all content—from project descriptions to essays—in structured JSON files within the GitHub repository, the entire site becomes version-controlled, transparent, and easily editable with a simple text editor. The front-end, built with Next.js and Tailwind CSS, is a static-first application that fetches and renders this data at build time, ensuring maximum performance and security.</p><p>Key features include a client-side search function written in plain JavaScript, dynamic page generation for categories and individual posts, and a clean, responsive design. The workflow is streamlined: edit a JSON file, commit, and deploy. It's an exercise in simplicity and developer-centric content management.</p></div>",
+    "date": "2024-07-20",
+    "tags": ["nextjs", "react", "tailwindcss", "json", "architecture"],
+    "thumbnail": "project-1-thumb"
+  },
+  {
+    "id": "data-visualization-kit",
+    "title": "Data Visualization Kit",
+    "subtitle": "A Component Library for React",
+    "intro": "A custom-built component library designed to simplify the creation of interactive and aesthetically pleasing charts and graphs in React applications.",
+    "content": "<div><p>Frustrated with the complexity and heavy dependencies of existing charting libraries, I developed a lightweight Data Visualization Kit. Built with React and styled-components, it provides a set of reusable components for common chart types like bar, line, and pie charts. The library is designed with a focus on customization and performance, using CSS variables for easy theming and minimizing re-renders through memoization.</p><p>The project involved a deep dive into SVG manipulation, animation with Framer Motion, and building an accessible and developer-friendly API. It's currently used in several internal dashboards and has significantly reduced the time required to build data-rich interfaces.</p></div>",
+    "date": "2023-11-05",
+    "tags": ["react", "typescript", "data-visualization", "library", "design-systems"],
+    "thumbnail": "project-2-thumb"
+  }
+]
